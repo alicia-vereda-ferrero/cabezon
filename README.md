@@ -22,6 +22,8 @@ En el repositorio, ve a **Settings → Pages**, elige la rama `main` y la carpet
 
 - Es un único archivo, `index.html`, sin compilar nada.
 - La conexión entre jugadores es directa entre navegadores, con [PeerJS](https://peerjs.com/).
-- Las categorías se generan en cada ronda desde [Wikidata](https://www.wikidata.org/), la base de datos libre de Wikipedia: más de 500 combinaciones (películas de un director, jugadores de un club, pueblos de una provincia, canciones de un artista…) con miles de respuestas posibles. La rareza de cada respuesta depende de en cuántas Wikipedias aparece. Si Wikidata no responde, se usan 19 categorías incluidas en el propio archivo.
+- **Base de datos de trivial en español.** 82 categorías y más de 5.000 respuestas, organizadas con los mismos temas que Open Trivia Database: cine, música, televisión, videojuegos, ciencia, geografía, historia, mitología, deportes, arte, libros, cómics, anime, dibujos animados, tecnología, vehículos, juegos de mesa y cultura general. Cada respuesta está clasificada como común, media o rara.
+- **Segunda fuente: [Wikidata](https://www.wikidata.org/).** Aproximadamente 3 de cada 10 rondas salen de aquí: películas de un director, canciones de un artista, jugadores de un club… Solo se aceptan respuestas con cierta fama, para que no salgan cosas demasiado raras.
+- **Funciona sin conexión.** Si Wikidata no responde, el juego sigue solo con la base de trivial.
 - El juego recuerda en el navegador qué categorías ya han salido para no repetirlas.
 - El dibujo de la cabeza es original del autor.

@@ -382,6 +382,269 @@ const DATA = [
   "aluminio|zinc|plomo|mercurio|uranio|cloro|potasio|magnesio|flúor|azufre|fósforo|neón|silicio|litio|platino|titanio|níquel|estaño|yodo|argón|plutonio|cobalto|radio|radón",
   "wolframio/tungsteno|molibdeno|rubidio|cesio|escandio|itrio|lantano|cerio|neodimio|samario|europio|gadolinio|terbio|disprosio|holmio|erbio|tulio|iterbio|lutecio|hafnio|tantalio|renio|osmio|iridio|talio|bismuto|polonio|astato|francio|actinio|torio|neptunio|americio|curio|einstenio|nobelio|oganesón|berilio|boro|cromo|manganeso|galio|germanio|arsénico|selenio|bromo|kriptón|estroncio|circonio|niobio|tecnecio|rutenio|rodio|paladio|cadmio|indio|antimonio|telurio|xenón|bario|vanadio"]}
 ];
+
+/* ---------- Base de datos de trivial en español ----------
+   Organizada con los mismos temas que Open Trivia Database, pero con categorías de "di uno".
+   c = tema, n = categoría, d = pista, p = son personas (vale el apellido), t = [comunes, medias, raras] */
+const TRIVIA=[
+ {c:"Vehículos",n:"Una marca de coches",d:"De cualquier país y época.",t:[
+  "Seat|Renault|Peugeot|Toyota|Ford|Volkswagen|BMW|Mercedes/Mercedes-Benz|Audi|Ferrari|Fiat|Opel|Citroën|Kia|Hyundai",
+  "Porsche|Lamborghini|Volvo|Nissan|Honda|Mazda|Skoda|Dacia|Tesla|Mini|Jeep|Alfa Romeo|Land Rover|Jaguar|Chevrolet|Suzuki|Mitsubishi|Subaru|Lexus|Cupra|Smart",
+  "Maserati|Bugatti|Bentley|Rolls-Royce|Aston Martin|McLaren|Lancia|Saab|Lotus|Pagani|Koenigsegg|Cadillac|Dodge|Chrysler|Lada|Pegaso|Hispano-Suiza|Infiniti|DS|Genesis|BYD|MG|Polestar|Tata|Daewoo|Rover"]},
+ {c:"Vehículos",n:"Un medio de transporte",d:"Por tierra, mar o aire.",t:[
+  "coche|moto|bicicleta/bici|avión|tren|barco|autobús|metro|taxi|helicóptero|patinete|camión|tranvía",
+  "furgoneta|velero|yate|submarino|globo aerostático/globo|avioneta|ferry|cercanías|AVE|teleférico|funicular|monopatín|caravana|tractor|ciclomotor|quad|kayak|canoa|piragua|góndola|carruaje|trineo|moto de agua|crucero|limusina|ambulancia",
+  "dirigible|aerodeslizador|zepelín|hidroavión|monorraíl|segway|rickshaw|tuk-tuk|catamarán|trimarán|zódiac|balsa|junco|galeón|carabela|trirreme|drakar|tartana|diligencia|landó|tílburi|telesilla|ala delta|parapente|autogiro|cohete|transbordador|monociclo|tándem|triciclo|hoverboard|motocarro|bicitaxi"]},
+ {c:"Cultura general",n:"Una marca de ropa o calzado",d:"Desde el centro comercial hasta el lujo.",t:[
+  "Zara|Nike|Adidas|H&M|Mango|Pull&Bear|Bershka|Levi's|Puma|Primark",
+  "Stradivarius|Massimo Dutti|Desigual|Lacoste|Converse|Vans|Reebok|New Balance|Tommy Hilfiger|Calvin Klein|Ralph Lauren|Gucci|Prada|Louis Vuitton|Chanel|Springfield|Oysho|Uniqlo|The North Face|Quiksilver",
+  "Balenciaga|Loewe|Pedro del Hierro|El Ganso|Camper|Munich|Joma|Kelme|Burberry|Versace|Dior|Hermès|Fila|Kappa|Umbro|Asics|Timberland|Dr. Martens|Carhartt|Stüssy|Supreme|Off-White|Moncler|Lefties"]},
+ {c:"Juegos de mesa",n:"Un juego de mesa o de cartas",d:"De la mesa camilla o de la tienda friki.",t:[
+  "parchís|ajedrez|oca|Monopoly|Trivial/Trivial Pursuit|damas|dominó|Uno|póker",
+  "mus|chinchón|tute|brisca|Cluedo|Risk|Scrabble|Pictionary|Jenga|Catan|hundir la flota|Tabú|Twister|Party|Dixit|solitario|mentiroso|cinquillo|escoba",
+  "guiñote|burro|Carcassonne|Aventureros al tren/Ticket to Ride|Pandemic|Dobble|Virus|backgammon|go|mahjong|Stratego|Quién es quién|Operación|Hotel|Rummikub|Ligretto|Exploding Kittens|Código secreto|Hanabi|Azul|Munchkin|Magic/Magic: The Gathering|bridge"]},
+ {c:"Juegos de mesa",n:"Una consola de videojuegos",d:"De sobremesa o portátil.",t:[
+  "PlayStation|PlayStation 2/PS2|PlayStation 4/PS4|PlayStation 5/PS5|Xbox|Xbox 360|Nintendo Switch/Switch|Wii|Game Boy|Nintendo DS|Nintendo 64|Super Nintendo",
+  "PlayStation 3/PS3|Xbox One|Xbox Series X|Game Boy Advance|Game Boy Color|Nintendo 3DS|Wii U|GameCube|NES|Mega Drive|Master System|Dreamcast|PSP|PS Vita|Game Gear|Atari 2600|Nintendo Switch 2/Switch 2|Steam Deck",
+  "Sega Saturn/Saturn|Neo Geo|3DO|Atari Jaguar|Atari Lynx|Virtual Boy|Sega 32X|Mega-CD|TurboGrafx-16/PC Engine|ColecoVision|Intellivision|Magnavox Odyssey|Neo Geo Pocket|WonderSwan|N-Gage|Ouya|Game & Watch|Amstrad GX4000|Gizmondo|Xbox Series S|PSone|Playdate|Analogue Pocket"]},
+ {c:"Libros",n:"Una obra de la literatura española",d:"Novela, teatro o poesía, de cualquier época.",t:[
+  "Don Quijote de la Mancha/El Quijote/Quijote|La Celestina|Lazarillo de Tormes/El Lazarillo|La casa de Bernarda Alba|Bodas de sangre|Yerma|Don Juan Tenorio|La vida es sueño|Fuenteovejuna|Campos de Castilla|Rimas/Rimas y leyendas",
+  "Luces de bohemia|Platero y yo|La Regenta|Fortunata y Jacinta|Marianela|Niebla|El árbol de la ciencia|La familia de Pascual Duarte|Nada|La colmena|El sí de las niñas|El burlador de Sevilla|Cantar de mio Cid/Cantar del Mío Cid|El Buscón|Coplas por la muerte de su padre|El conde Lucanor|Los santos inocentes|Cinco horas con Mario|La sombra del viento|El capitán Alatriste",
+  "Tirant lo Blanc|Libro de buen amor|Misericordia|Doña Perfecta|Pepita Jiménez|La busca|San Manuel Bueno, mártir|Tiempo de silencio|El Jarama|Réquiem por un campesino español|La verdad sobre el caso Savolta|Los girasoles ciegos|Patria|Soldados de Salamina|Corazón tan blanco|La barraca|Cañas y barro|Trafalgar|La tía Tula|El perro del hortelano|La dama boba|Historia de una escalera|Tres sombreros de copa"]},
+ {c:"Libros",n:"Un libro famoso de la literatura universal",d:"Clásicos de cualquier país, con su título en español.",t:[
+  "Cien años de soledad|El principito|1984|Romeo y Julieta|Hamlet|Orgullo y prejuicio|Harry Potter|El señor de los anillos|La Odisea|La Ilíada|Frankenstein|Drácula",
+  "Crimen y castigo|Guerra y paz|Anna Karénina|Los miserables|Madame Bovary|El gran Gatsby|Matar a un ruiseñor|Moby Dick|Ulises|La metamorfosis|El proceso|Rayuela|Pedro Páramo|Fahrenheit 451|Un mundo feliz|El retrato de Dorian Gray|Cumbres borrascosas|Jane Eyre|El conde de Montecristo|Los tres mosqueteros|Alicia en el país de las maravillas|Las aventuras de Tom Sawyer/Tom Sawyer|Robinson Crusoe|Los viajes de Gulliver|La isla del tesoro|El nombre de la rosa|Lolita|El guardián entre el centeno|La divina comedia",
+  "En busca del tiempo perdido|Los hermanos Karamázov|El extranjero|La peste|Rebelión en la granja|Las uvas de la ira|Ficciones|El Aleph|La ciudad y los perros|Conversación en La Catedral|Rojo y negro|La señora Dalloway|Al faro|El ruido y la furia|La montaña mágica|Siddhartha|El lobo estepario|Viaje al centro de la Tierra|Veinte mil leguas de viaje submarino|La vuelta al mundo en ochenta días|El maestro y Margarita|Ensayo sobre la ceguera|La casa de los espíritus|Como agua para chocolate|El túnel|Tokio blues"]},
+ {c:"Cine",n:"Una película de animación de Disney",d:"Los clásicos de Disney, sin contar Pixar.",t:[
+  "El rey león|La sirenita|Aladdín|Frozen|Blancanieves/Blancanieves y los siete enanitos|La Cenicienta/Cenicienta|La bella y la bestia|Pinocho|Dumbo|Bambi|Peter Pan|Mulán|Pocahontas|Hércules|Tarzán|Enredados|Vaiana/Moana|Encanto",
+  "La dama y el vagabundo|101 dálmatas|El libro de la selva|Los aristogatos|Robin Hood|La bella durmiente|Alicia en el país de las maravillas|Fantasía|Los rescatadores|Tod y Toby|Oliver y su pandilla|El jorobado de Notre Dame|Lilo y Stitch|Zootrópolis|Big Hero 6|Rompe Ralph|Tiana y el sapo|Bolt|Raya y el último dragón|Wish",
+  "Atlantis|El planeta del tesoro|Hermano oso|Zafarrancho en el rancho|Chicken Little|Descubriendo a los Robinsons|Dinosaurio|El emperador y sus locuras|Basil, el ratón superdetective|Taron y el caldero mágico|Merlín el encantador|Los tres caballeros|Saludos amigos|Fantasía 2000|Mundo extraño"]},
+ {c:"Cine",n:"Una película de Pixar",d:"Del flexo saltarín. Las secuelas cuentan.",t:[
+  "Toy Story|Buscando a Nemo|Cars|Monstruos, S.A.|Los Increíbles|Up|Ratatouille|WALL·E/Wall-e|Coco|Del revés/Inside Out",
+  "Bichos|Toy Story 2|Toy Story 3|Toy Story 4|Brave|Monstruos University|Buscando a Dory|Cars 2|Cars 3|Los Increíbles 2|Soul|Luca|Red|Elemental|Del revés 2/Inside Out 2",
+  "El viaje de Arlo|Onward|Lightyear|Elio"]},
+ {c:"Cine",n:"Una película que ganó el Óscar a mejor película",d:"De 1929 a hoy.",t:[
+  "Titanic|El padrino|Forrest Gump|Gladiator|El señor de los anillos: el retorno del rey/El retorno del rey|Parásitos|Oppenheimer|La lista de Schindler|Casablanca|Rocky",
+  "Lo que el viento se llevó|Ben-Hur|Amadeus|Braveheart|El silencio de los corderos|American Beauty|Una mente maravillosa|Million Dollar Baby|Slumdog Millionaire|El discurso del rey|The Artist|Argo|12 años de esclavitud|Birdman|Spotlight|Moonlight|La forma del agua|Green Book|Nomadland|CODA|Todo a la vez en todas partes|Anora|Infiltrados|No es país para viejos|En tierra hostil|Bailando con lobos|Platoon|El último emperador|Sonrisas y lágrimas|Lawrence de Arabia|West Side Story|El apartamento|Chicago|Crash|Gandhi|Rain Man|El padrino II/El padrino parte II",
+  "Alas|Sin novedad en el frente|Cimarrón|Gran Hotel|Sucedió una noche|Rebelión a bordo|Vive como quieras|Qué verde era mi valle|La señora Miniver|Días sin huella|Hamlet|Eva al desnudo|Marty|Gigi|Tom Jones|My Fair Lady|Oliver|Cowboy de medianoche|Patton|Contra el imperio de la droga|El golpe|Alguien voló sobre el nido del cuco|Annie Hall|El cazador|Kramer contra Kramer|Gente corriente|Carros de fuego|La fuerza del cariño|Memorias de África|Paseando a Miss Daisy|Sin perdón|El paciente inglés|Shakespeare enamorado"]},
+ {c:"Cine",n:"Una saga de películas",d:"Con al menos una secuela.",t:[
+  "Star Wars/La guerra de las galaxias|Harry Potter|El señor de los anillos|Toy Story|Rocky|Indiana Jones|Jurassic Park|Piratas del Caribe|Fast & Furious/A todo gas|Shrek|Los Vengadores|Matrix|Regreso al futuro|Terminator|James Bond",
+  "Misión imposible|Alien|Torrente|Spider-Man|Batman|Crepúsculo|Los juegos del hambre|Saw|Scream|Mad Max|Gru, mi villano favorito/Gru|Ice Age|Kung Fu Panda|Madagascar|Transformers|Rambo|Jungla de cristal|Men in Black|Ocean's Eleven|El hobbit|X-Men|Avatar|John Wick|El planeta de los simios",
+  "Loca academia de policía|Arma letal|Los cazafantasmas|Poltergeist|Halloween|Viernes 13|Pesadilla en Elm Street|Destino final|Paranormal Activity|Underworld|Resident Evil|Expediente Warren|Insidious|Los mercenarios|Karate Kid|Ahora me ves|Noche en el museo"]},
+ {c:"Cine",n:"Un actor o actriz español",d:"De cine o de series, de cualquier época.",p:1,t:[
+  "Antonio Banderas|Penélope Cruz|Javier Bardem|Mario Casas|Úrsula Corberó|Belén Rueda|Paco León|Santiago Segura|Dani Rovira|Luis Tosar|Maribel Verdú",
+  "Carmen Maura|Victoria Abril|Antonio Resines|José Coronado|Javier Cámara|Elena Anaya|Paz Vega|Inma Cuesta|Hugo Silva|Álvaro Morte|Miguel Herrán|Jaime Lorente|Itziar Ituño|Blanca Suárez|Clara Lago|Quim Gutiérrez|Raúl Arévalo|Karra Elejalde|Loles León|Rossy de Palma|Imanol Arias|Ana Belén|Carmen Machi|Leonor Watling|Eduardo Noriega|Fernando Tejero|Antonio de la Torre|Najwa Nimri|Ester Expósito|Aitana Sánchez-Gijón|Silvia Abril",
+  "Alfredo Landa|Paco Martínez Soria|Fernando Fernán Gómez|José Luis López Vázquez|Lina Morgan|Gracita Morales|Concha Velasco|Sara Montiel|Fernando Rey|Francisco Rabal|Tony Leblanc|Chus Lampreave|Agustín González|Ángela Molina|Carmen Sevilla|Verónica Forqué|Juan Diego|Emma Suárez|Candela Peña|Juan Echanove|Eduard Fernández|Petra Martínez|Kiti Mánver|Paco Tous|Pepe Viyuela"]},
+ {c:"Música",n:"Un cantante o grupo de música española",d:"Pop, rock, flamenco, rap… de cualquier época.",t:[
+  "Alejandro Sanz|Rosalía|Mecano|Estopa|Pablo Alborán|Aitana|Melendi|David Bisbal/Bisbal|Camela|Julio Iglesias|Enrique Iglesias|Raphael|La Oreja de Van Gogh|Malú|Quevedo",
+  "Héroes del Silencio|El Canto del Loco|Los Secretos|Hombres G|Joaquín Sabina/Sabina|Joan Manuel Serrat/Serrat|Fito y Fitipaldis/Fito|Extremoduro|Marea|Bunbury/Enrique Bunbury|Vanesa Martín|Pastora Soler|India Martínez|C. Tangana|Lola Índigo|Bad Gyal|Rels B|Dani Martín|Manuel Carrasco|Sergio Dalma|Rocío Jurado|Isabel Pantoja|Lola Flores|Camarón/Camarón de la Isla|Paco de Lucía|Bebe|Amaral|Love of Lesbian|Vetusta Morla|Izal|Leiva|Andy y Lucas|Siempre Así|Los del Río|Las Ketchup|Chenoa|Manolo García|El Último de la Fila|Dellafuente|Morad|Saiko|Nino Bravo|Mocedades|Rosario/Rosario Flores|Ketama|Niña Pastori|Estrella Morente|Miguel Poveda|Los Chichos|Los Chunguitos|Peret|Kase.O|Mala Rodríguez|Nach|Mägo de Oz|Ska-P|Barón Rojo|Loquillo|Radio Futura|Nacha Pop|Alaska|Fangoria|Los Rodríguez|Duncan Dhu|Celtas Cortos|Jarabe de Palo|Marta Sánchez|Azúcar Moreno|Camilo Sesto|Rocío Dúrcal|Miguel Bosé|José Luis Perales|Los Pecos",
+  "Lori Meyers|Los Planetas|Triana|Medina Azahara|Kiko Veneno|Enrique Morente|Diego el Cigala|Las Grecas|Violadores del Verso|SFDK|Natos y Waor|Recycled J|Hoke|Alizzz|Barry B|Delaossa|Cruz Cafuné|Ptazeta|Abraham Mateo|Antonio Orozco|Pablo López|Funambulista|Presuntos Implicados|Revólver|Burning|Obús|Platero y Tú|Los Suaves|Rosendo|Gabinete Caligari|Siniestro Total|La Unión|Danza Invisible|Seguridad Social|Olé Olé|Juan Pardo|Massiel|Karina|Los Brincos|Los Bravos|Fórmula V|Sidecars|Pignoise|Nena Daconte|Rosa López|Bustamante|Ana Torroja"]},
+ {c:"Música",n:"Un artista de reguetón o música urbana latina",d:"De Puerto Rico, Colombia, Argentina, España…",t:[
+  "Bad Bunny|Daddy Yankee|J Balvin|Karol G|Ozuna|Maluma|Anuel AA/Anuel|Nicky Jam|Don Omar|Wisin y Yandel|Rauw Alejandro|Feid|Myke Towers",
+  "Farruko|Sech|Arcángel|De La Ghetto|Tego Calderón|Ivy Queen|Becky G|Natti Natasha|Jhayco/Jhay Cortez|Manuel Turizo|Camilo|Sebastián Yatra|Lunay|Plan B|Zion y Lennox|Tito El Bambino|Ñengo Flow|Lenny Tavárez|Justin Quiles|Bizarrap|Duki|Nicki Nicole|Tini|María Becerra|Peso Pluma|Young Miko|Quevedo|Blessd|Ryan Castro|Mora|Eladio Carrión",
+  "Héctor el Father|Calle 13|Residente|Vico C|Alexis y Fido|Chencho Corleone|Jowell y Randy|Yomo|Cosculluela|Lyanno|Brray|Dalex|Rafa Pabön|Paulo Londra|Khea|Trueno|Wos|Emilia|Lali|Cazzu|Bhavi|Ecko|FMK|Tiago PZK|Rusherking|Lit Killah|Dei V|Jay Wheeler|Omar Courtz"]},
+ {c:"Música",n:"Un grupo o artista internacional de rock",d:"Del rock clásico al metal y el indie.",t:[
+  "The Beatles/Beatles|Queen|The Rolling Stones/Rolling Stones|AC⁄DC/ACDC/AC DC|Nirvana|Metallica|Guns N' Roses|Led Zeppelin|Pink Floyd|U2|Bon Jovi|Coldplay|Oasis|Elvis Presley/Elvis|Kiss",
+  "The Doors|Deep Purple|Black Sabbath|Iron Maiden|Aerosmith|Red Hot Chili Peppers|Foo Fighters|Pearl Jam|Radiohead|The Who|The Clash|Ramones|Sex Pistols|The Police|Dire Straits|Scorpions|Europe|Def Leppard|Van Halen|Linkin Park|Green Day|The Cure|Muse|Arctic Monkeys|The Killers|Bruce Springsteen|David Bowie|Jimi Hendrix|Eric Clapton|Santana|Rammstein|Blur|R.E.M.|Soda Stereo|Los Prisioneros",
+  "Rush|Yes|Genesis|King Crimson|Jethro Tull|The Velvet Underground|Joy Division|The Smiths|Pixies|Sonic Youth|Soundgarden|Alice in Chains|Megadeth|Slayer|Pantera|Motörhead|Judas Priest|The Kinks|Creedence Clearwater Revival|Lynyrd Skynyrd|ZZ Top|Toto|Journey|The Strokes|Franz Ferdinand|Kasabian|Placebo|System of a Down|Tool|Korn|Slipknot|Evanescence|Nightwish|The White Stripes|Queens of the Stone Age|Tame Impala|Gorillaz|Depeche Mode|Talking Heads|Fleetwood Mac|Eagles"]},
+ {c:"Música",n:"Un cantante o grupo de pop internacional",d:"De Michael Jackson a hoy.",t:[
+  "Michael Jackson|Madonna|Britney Spears|Taylor Swift|Beyoncé|Rihanna|Lady Gaga|Justin Bieber|Ed Sheeran|Adele|Bruno Mars|Dua Lipa|Ariana Grande|Shakira|The Weeknd|Katy Perry|Billie Eilish|Harry Styles|One Direction|Backstreet Boys|Spice Girls|ABBA",
+  "Whitney Houston|Mariah Carey|Celine Dion|Elton John|George Michael|Prince|Kylie Minogue|Robbie Williams|Christina Aguilera|Justin Timberlake|Miley Cyrus|Selena Gomez|Shawn Mendes|Olivia Rodrigo|Sabrina Carpenter|Sia|Pink|Avril Lavigne|Maroon 5|Imagine Dragons|OneRepublic|BTS|Blackpink|Jonas Brothers|NSYNC|Take That|Westlife|Destiny's Child|Doja Cat|Lana Del Rey|Charli XCX|Chappell Roan|SZA|Lizzo",
+  "Cyndi Lauper|Tina Turner|Janet Jackson|Bee Gees|Wham!|Duran Duran|a-ha|Pet Shop Boys|Eurythmics|Roxette|Ace of Base|Aqua|Vengaboys|Nelly Furtado|Gwen Stefani|No Doubt|Black Eyed Peas|Jessie J|Ellie Goulding|Lorde|Halsey|Camila Cabello|Fifth Harmony|Little Mix|Hanson|Spandau Ballet|Culture Club|Tears for Fears|Simply Red|Annie Lennox|The Corrs|Dido|Kesha|Rita Ora|Zara Larsson|Robyn|Carly Rae Jepsen|Meghan Trainor|Lewis Capaldi|Sam Smith|Hozier|Benson Boone|Tate McRae|Rosé|Stray Kids|Twice"]},
+ {c:"Música",n:"Un musical famoso",d:"De Broadway, del West End o de la Gran Vía.",t:[
+  "El rey león|Mamma Mia!|Grease|Los miserables|El fantasma de la ópera|Cats|Chicago|Hamilton|Wicked|Sonrisas y lágrimas|West Side Story|Aladdín|La bella y la bestia|Jesucristo Superstar",
+  "Evita|Cabaret|Hair|Rent|Fama|Mary Poppins|Matilda|Billy Elliot|Annie|Oliver!|Miss Saigon|A Chorus Line|Dirty Dancing|Hoy no me puedo levantar|We Will Rock You|The Book of Mormon|Querido Evan Hansen/Dear Evan Hansen|Moulin Rouge|Kinky Boots|Sweeney Todd|Into the Woods|El jovencito Frankenstein|Priscilla, reina del desierto|Los productores|The Rocky Horror Show|Tarzán|Frozen|Sister Act|Anastasia|Charlie y la fábrica de chocolate|Hairspray|Spamalot|El médico|La llamada|Más de cien mentiras|Six|Beetlejuice|Shrek",
+  "Oklahoma!|My Fair Lady|El rey y yo|South Pacific|Show Boat|Kiss Me, Kate|Guys and Dolls|Hello, Dolly!|Funny Girl|Godspell|Pippin|Follies|Assassins|Spring Awakening|Next to Normal|Come From Away|Hadestown|Heathers|Chess|Starlight Express|Sunset Boulevard|La tienda de los horrores|Nine|Ragtime|Jekyll y Hyde|Notre Dame de Paris|Elisabeth|La jaula de las locas|Golfus de Roma|Annie Get Your Gun|Gypsy|El hombre de La Mancha|El violinista en el tejado"]},
+ {c:"Televisión",n:"Una serie española",d:"De la tele de siempre o de plataformas.",t:[
+  "La casa de papel|Élite|Aquí no hay quien viva|La que se avecina|Los Serrano|Cuéntame cómo pasó/Cuéntame|Física o química|Merlí|Médico de familia|El Ministerio del Tiempo|Vis a vis|Velvet|El internado|Los hombres de Paco|Verano azul",
+  "Farmacia de guardia|7 vidas|Aída|Hospital Central|Los protegidos|Águila Roja|El barco|Gran Hotel|Isabel|Hierro|Fariña|Patria|Paquita Salas|Arde Madrid|Vivir sin permiso|Sin identidad|Pulseras rojas|Allí abajo|Doctor Mateo|Los misterios de Laura|Compañeros|Al salir de clase|Un paso adelante|Amar es para siempre|El secreto de Puente Viejo|Servir y proteger|Sky Rojo|Las chicas del cable|El desorden que dejas|Valeria|Machos alfa|Berlín|Entrevías|La Mesías|Veneno|Antidisturbios",
+  "Crematorio|Raquel busca su sitio|Periodistas|Policías, en el corazón de la calle|Curro Jiménez|Turno de oficio|Brigada Central|Los ladrones van a la oficina|Menudo es mi padre|Ana y los siete|Mis adorables vecinos|Camera Café|Plutón BRB Nero|Muchachada Nui|Qué vida más triste|Malviviendo|Estoy vivo|El Caso: crónica de sucesos|Bandolera|Olmos y Robles|La peste|La otra mirada|Señoras del (h)AMPA|Cardo"]},
+ {c:"Televisión",n:"Una serie estadounidense",d:"Comedias, dramas, de animación… de cualquier década.",t:[
+  "Friends|Los Simpson|Breaking Bad|Juego de tronos|Stranger Things|The Office|Perdidos/Lost|Prison Break|Anatomía de Grey|The Big Bang Theory|Cómo conocí a vuestra madre|The Walking Dead|Dexter|House|Los Soprano",
+  "Seinfeld|Frasier|Mad Men|The Wire|Sexo en Nueva York|Mujeres desesperadas|Gossip Girl|Glee|Modern Family|Dos hombres y medio|Padre de familia|South Park|Futurama|Expediente X|CSI|Mentes criminales|NCIS|24|Héroes|Euphoria|Succession|Better Call Saul|The Mandalorian|Westworld|True Detective|Ozark|Orange Is the New Black|House of Cards|Fargo|The Bear|Miércoles|The Last of Us|Yellowstone|Twin Peaks|El príncipe de Bel-Air|Salvados por la campana|Embrujadas|Buffy, cazavampiros|Smallville|Las chicas Gilmore",
+  "Dawson crece|Sensación de vivir|Melrose Place|Doctor en Alaska|Urgencias|El ala oeste de la Casa Blanca|A dos metros bajo tierra|Deadwood|Boardwalk Empire|Arrested Development|30 Rock|Parks and Recreation|Community|Scrubs|Veronica Mars|Fringe|Battlestar Galactica|Firefly|The Leftovers|Atlanta|Barry|Separación/Severance|The Americans|Mr. Robot|Hannibal|The Shield|Oz|Weeds|Entourage|Sons of Anarchy|Justified"]},
+ {c:"Televisión",n:"Un programa de la tele española (que no sea serie)",d:"Concursos, realities, magacines, late shows…",t:[
+  "Operación Triunfo/OT|Gran Hermano|Pasapalabra|Saber y ganar|El Hormiguero|MasterChef|Supervivientes|La Voz|Sálvame|Tu cara me suena|Telediario|La isla de las tentaciones|First Dates|La ruleta de la suerte",
+  "Got Talent|El Intermedio|La Resistencia|Mujeres y hombres y viceversa|El precio justo|Un, dos, tres|Crónicas marcianas|Caiga quien caiga|Callejeros|Españoles en el mundo|Cuarto milenio|Aquí hay tomate|Allá tú|Lo de Évole|Salvados|El chiringuito|Planeta Calleja|Pekín Express|Fama, ¡a bailar!|Mira quién baila|Pesadilla en la cocina|Quién quiere ser millonario|Atrapa un millón|Al rojo vivo|Espejo público|Sé lo que hicisteis|Buenafuente|Late Motiv|La revuelta|Cifras y letras|Grand Prix|Humor amarillo|Noche de fiesta|Furor",
+  "Estudio estadio|Informe semanal|La bola de cristal|Barrio Sésamo|Club Megatrix|Los Lunnis|Cine de barrio|La clave|Tómbola|Esta noche cruzamos el Mississippi|Hermano mayor|Supernanny|Quién da la vez|Corazón, corazón|La hora chanante|Sorpresa, sorpresa|Lluvia de estrellas|El gran juego de la oca|Waku waku|Lo que necesitas es amor|Hay una carta para ti"]},
+ {c:"Videojuegos",n:"Un videojuego famoso",d:"Vale el nombre de la saga.",t:[
+  "Super Mario|Tetris|Minecraft|Fortnite|FIFA/EA Sports FC|GTA/Grand Theft Auto|Pokémon|The Legend of Zelda/Zelda|Pac-Man|Call of Duty|Mario Kart|Sonic|Los Sims|Among Us|Roblox|League of Legends/LoL",
+  "Halo|God of War|The Last of Us|Red Dead Redemption|Assassin's Creed|Street Fighter|Mortal Kombat|Tekken|Resident Evil|Final Fantasy|Metal Gear Solid/Metal Gear|Crash Bandicoot|Spyro|Donkey Kong|Space Invaders|Counter-Strike|Overwatch|World of Warcraft|Diablo|StarCraft|Age of Empires|Clash Royale|Clash of Clans|Candy Crush|Angry Birds|Animal Crossing|Super Smash Bros.|Uncharted|The Witcher|Skyrim|Elden Ring|Dark Souls|Valorant|Rocket League|Fall Guys|Apex Legends|PUBG|Doom|Half-Life|Portal|Pro Evolution Soccer/PES|Gran Turismo|Need for Speed|Tomb Raider|Prince of Persia|BioShock|Fallout|Cyberpunk 2077|Hollow Knight|Stardew Valley|Undertale|Cuphead",
+  "Commandos|La abadía del crimen|Castlevania|Metroid|Kirby|Star Fox|F-Zero|Pikmin|Splatoon|Xenoblade|Fire Emblem|Kingdom Hearts|Persona|Dragon Quest|Chrono Trigger|Okami|Shadow of the Colossus|Ico|Journey|Limbo|Inside|Braid|Celeste|Hades|Dead Cells|Terraria|Factorio|Civilization|SimCity|Lemmings|Worms|Rayman|Banjo-Kazooie|GoldenEye 007|Silent Hill|Dead Space|Mass Effect|Dragon Age|Monkey Island|Grim Fandango|Day of the Tentacle|Blasphemous|Gris|Rime|PC Fútbol|Hogwarts Legacy|Baldur's Gate|Disco Elysium|Outer Wilds|Sekiro|Bloodborne|Death Stranding|Ghost of Tsushima|Horizon Zero Dawn|Ratchet & Clank|Jak and Daxter|LittleBigPlanet"]},
+ {c:"Ciencia",n:"Un planeta, luna u otro astro del sistema solar",d:"Planetas, satélites, planetas enanos, asteroides…",t:[
+  "Sol|Mercurio|Venus|Tierra|Marte|Júpiter|Saturno|Urano|Neptuno|Luna|Plutón",
+  "Ceres|Fobos|Deimos|Ío|Europa|Ganímedes|Calisto|Titán|Encélado|Tritón|Caronte|Eris|cometa Halley/Halley",
+  "Haumea|Makemake|Sedna|Mimas|Rea|Dione|Tetis|Jápeto|Miranda|Titania|Oberón|Ariel|Umbriel|Hiperión|Febe|Proteo|Nereida|Vesta|Palas|Juno|Higía|Amaltea|Metis|Tebe"]},
+ {c:"Ciencia",n:"Un hueso del cuerpo humano",d:"Hay 206. Los de la mano y el oído puntúan mucho.",t:[
+  "fémur|tibia|peroné|húmero|cúbito|radio|cráneo|costilla|clavícula|rótula|pelvis|mandíbula|vértebra|esternón",
+  "omóplato/escápula|coxis|sacro|ilíaco/hueso de la cadera|falange|metacarpo|metatarso|tarso|carpo|maxilar|calcáneo|astrágalo|ilion|isquion|pubis|frontal|occipital|parietal|temporal",
+  "esfenoides|etmoides|vómer|cigomático/malar|lagrimal|hioides|martillo|yunque|estribo|escafoides|semilunar|piramidal|pisiforme|trapecio|trapezoide|hueso grande|ganchoso|cuboides|navicular|cuneiforme|sesamoideo|atlas|axis|palatino|cornete"]},
+ {c:"Ciencia",n:"Un órgano o parte interna del cuerpo humano",d:"De dentro del cuerpo: órganos, glándulas, conductos…",t:[
+  "corazón|pulmón|hígado|riñón|estómago|cerebro|intestino|páncreas|vejiga|bazo",
+  "tiroides|vesícula biliar/vesícula|apéndice|esófago|laringe|faringe|tráquea|útero|ovario|próstata|diafragma|duodeno|colon|recto|médula espinal/médula|cerebelo|hipotálamo|timo",
+  "hipófisis|glándula pineal|glándulas suprarrenales/suprarrenal|uréter|uretra|epiglotis|bronquio|alveolo|píloro|íleon|yeyuno|ciego|amígdalas|trompa de Eustaquio|cóclea|retina|córnea|cristalino|iris|epidídimo|hipocampo|tálamo|bulbo raquídeo|meninges|peritoneo|pleura|pericardio"]},
+ {c:"Ciencia",n:"Un dinosaurio o reptil prehistórico",d:"Vale el nombre científico o el castellanizado.",t:[
+  "Tiranosaurio/T-Rex/Tyrannosaurus|Velociraptor|Triceratops|Brontosaurio/Brontosaurus|Estegosaurio/Stegosaurus|Diplodocus|Pterodáctilo/Pteranodon|Braquiosaurio/Brachiosaurus|Espinosaurio/Spinosaurus",
+  "Anquilosaurio/Ankylosaurus|Parasaurolophus|Iguanodon|Alosaurio/Allosaurus|Carnotaurus|Dilophosaurus|Gallimimus|Paquicefalosaurio/Pachycephalosaurus|Apatosaurus|Giganotosaurus|Mosasaurio/Mosasaurus|Plesiosaurio/Plesiosaurus|Ictiosaurio|Argentinosaurus|Compsognathus",
+  "Oviraptor|Deinonychus|Therizinosaurus|Utahraptor|Baryonyx|Carcharodontosaurus|Microraptor|Archaeopteryx|Protoceratops|Styracosaurus|Edmontosaurus|Maiasaura|Troodon|Quetzalcoatlus|Dimetrodon|Megalosaurus|Ceratosaurus|Corythosaurus|Amargasaurus|Concavenator|Aragosaurus|Turiasaurus|Pelecanimimus|Europelta|Iberomesornis"]},
+ {c:"Animales",n:"Un animal de la sabana africana",d:"Mamíferos, aves y reptiles de la sabana.",t:[
+  "león|elefante|jirafa|cebra|hipopótamo|rinoceronte|guepardo|leopardo|hiena|ñu|gacela|búfalo",
+  "avestruz|suricata|facóquero/jabalí verrugoso|impala|antílope|babuino|chacal|buitre|mangosta|licaón/perro salvaje africano|cocodrilo|marabú|serval|órix|kudú|eland",
+  "dik-dik|topi|springbok|caracal|oribi|damán|oricteropo/cerdo hormiguero|pangolín|serpentario/pájaro secretario|calao|cobo|ratel/tejón de la miel|proteles|gerenuk|mamba negra|picabueyes|tejedor|galago|colobo"]},
+ {c:"Animales",n:"Una raza de perro",d:"Las razas españolas puntúan muy bien.",t:[
+  "pastor alemán|labrador|golden retriever/golden|chihuahua|bulldog|caniche|yorkshire|husky|dálmata|beagle|bóxer|rottweiler|pitbull|galgo|teckel/perro salchicha",
+  "border collie|dóberman|pomerania|shih tzu|carlino/pug|bichón maltés/maltés|cocker|schnauzer|san bernardo|gran danés|mastín|podenco|bulldog francés|akita|shiba inu|setter|pointer|samoyedo|chow chow|bull terrier|jack russell|westie/west highland|pastor belga|galgo afgano|braco|perro de agua español|basset hound|corgi",
+  "podenco ibicenco|alano español|presa canario|ratonero bodeguero andaluz|perdiguero de Burgos|mastín español|mastín del Pirineo|sabueso español|xoloitzcuintle|lebrel irlandés|whippet|saluki|basenji|crestado chino|shar pei|terranova|leonberger|bobtail|schipperke|papillón|bichón frisé|lhasa apso|pequinés|spitz|dogo argentino|cane corso|rhodesian ridgeback|weimaraner|vizsla|pastor garafiano|gos d'atura|pachón navarro"]},
+ {c:"Matemáticas",n:"Una figura geométrica",d:"Planas o con volumen.",t:[
+  "círculo|cuadrado|triángulo|rectángulo|rombo|pentágono|hexágono|óvalo|cubo|esfera|cono|cilindro|pirámide",
+  "trapecio|romboide|paralelogramo|octógono|heptágono|decágono|elipse|prisma|tetraedro|octaedro|dodecaedro|icosaedro|cuadrilátero|polígono|trapezoide|semicírculo|estrella",
+  "eneágono|endecágono|dodecágono|icoságono|toro|ortoedro|paraboloide|hiperboloide|elipsoide|deltoide|tronco de cono|antiprisma|cuboctaedro|parábola|hipérbola|cardioide|astroide|lemniscata|cicloide"]},
+ {c:"Ciencia",n:"Un científico o matemático famoso",d:"De la Antigüedad a hoy. Vale el apellido.",p:1,t:[
+  "Albert Einstein|Isaac Newton|Galileo Galilei/Galileo|Marie Curie|Charles Darwin|Nikola Tesla|Stephen Hawking|Pitágoras|Arquímedes|Thomas Edison|Leonardo da Vinci",
+  "Euclides|Nicolás Copérnico|Johannes Kepler|Blaise Pascal|René Descartes|Carl Friedrich Gauss|Leonhard Euler|Pierre de Fermat|Gottfried Leibniz|Michael Faraday|James Clerk Maxwell|Niels Bohr|Werner Heisenberg|Erwin Schrödinger|Max Planck|Louis Pasteur|Gregor Mendel|Alexander Fleming|Santiago Ramón y Cajal/Ramón y Cajal|Severo Ochoa|Alan Turing|Ada Lovelace|Hipatia|Tales de Mileto|Aristóteles|Edwin Hubble|Carl Sagan|Rosalind Franklin|Dmitri Mendeléyev|Antoine Lavoisier|Alessandro Volta|André-Marie Ampère|Georg Ohm|Heinrich Hertz|Fibonacci|Joseph Fourier|Bernhard Riemann|David Hilbert|Kurt Gödel|Richard Feynman|Paul Dirac|Enrico Fermi|Robert Oppenheimer|Lord Kelvin|James Prescott Joule|Robert Boyle|Robert Hooke|Christiaan Huygens",
+  "Al-Juarismi|Brahmagupta|Srinivasa Ramanujan|Emmy Noether|Georg Cantor|Évariste Galois|Joseph-Louis Lagrange|Pierre-Simon Laplace|Augustin-Louis Cauchy|Henri Poincaré|Andréi Kolmogórov|John von Neumann|John Nash|Grigori Perelmán|Maryam Mirzajani|Margarita Salas|Isaac Peral|Juan de la Cierva|Leonardo Torres Quevedo|Miguel Servet|Averroes|Avicena|Maimónides|Tycho Brahe|Lise Meitner|Subrahmanyan Chandrasekhar|Peter Higgs|Wolfgang Pauli|Ludwig Boltzmann|Ernest Rutherford|J. J. Thomson|James Chadwick|Henri Becquerel|Wilhelm Röntgen|Christian Doppler|Hendrik Lorentz"]},
+ {c:"Mitología",n:"Un dios o diosa griego o romano",d:"Vale el nombre griego o el romano.",t:[
+  "Zeus|Hera|Poseidón|Hades|Atenea|Apolo|Afrodita|Ares|Hermes|Artemisa|Júpiter|Marte|Venus|Neptuno|Cupido|Eros",
+  "Dioniso/Dionisio|Baco|Hefesto|Vulcano|Deméter|Ceres|Hestia|Vesta|Juno|Minerva|Mercurio|Diana|Plutón|Cronos|Saturno|Gea|Urano|Perséfone|Proserpina|Helios|Selene|Eolo|Nike|Némesis|Jano|Fortuna|Morfeo|Hipnos|Tánatos|Pan|Fauno",
+  "Hécate|Tique|Eos|Aurora|Iris|Hebe|Harmonía|Asclepio|Esculapio|Rea|Océano|Tetis|Temis|Mnemósine|Nix|Érebo|Caos|Prometeo|Atlas|Hiperión|Leto|Eris|Priapo|Pomona|Flora|Quirino|Belona"]},
+ {c:"Mitología",n:"Un dios egipcio",d:"Del panteón del antiguo Egipto.",t:[
+  "Ra|Osiris|Isis|Anubis|Horus|Set",
+  "Thot|Bastet|Amón|Atón|Ptah|Sobek|Hathor|Maat|Nut|Geb|Neftis|Sejmet|Jnum|Bes|Apofis",
+  "Shu|Tefnut|Atum|Jepri|Montu|Min|Neit|Serket|Tueris|Hapi|Jonsu|Mut|Uadyet|Nejbet|Anuket|Satis|Heka|Seshat|Upuaut|Ammit|Meretseger|Aker"]},
+ {c:"Mitología",n:"Un dios o ser de la mitología nórdica",d:"Dioses, gigantes y criaturas de los vikingos.",t:[
+  "Odín|Thor|Loki|Freya",
+  "Frigg|Baldr|Tyr|Heimdall|Hela/Hel|Freyr|Njord|Sif|Fenrir|valquiria|Yggdrasil",
+  "Idun|Bragi|Vidar|Vali|Ullr|Forseti|Skadi|Hodr|Mimir|Ymir|Jörmungandr|Sleipnir|Ratatoskr|Nidhogg|Surtr|Hugin|Munin|Angrboda|Sigyn"]},
+ {c:"Mitología",n:"Un ser mitológico o criatura legendaria",d:"De cualquier mitología o leyenda, también las españolas.",t:[
+  "dragón|unicornio|sirena|centauro|minotauro|Pegaso|fénix|grifo|hada|duende|vampiro|hombre lobo|cíclope|Medusa|gnomo|trol|ogro|zombi|hidra",
+  "quimera|kraken|esfinge|basilisco|gorgona|arpía|sátiro|ninfa|elfo|enano|gigante|gólem|banshee|yeti|Pie Grande|Nessie/monstruo del lago Ness|chupacabras|leprechaun|Cerbero|mantícora|kitsune|genio|wendigo|kelpie",
+  "hipogrifo|leviatán|behemot|tarasca|ojáncana|trasgo|Santa Compaña|lamia|nuberu|cuélebre|busgosu|xana|el coco|sacamantecas|hombre del saco|mandrágora|ondina|sílfide|dríade|náyade|nereida|ifrit|ave roc|tengu|kappa|oni|naga|garuda|draugr"]},
+ {c:"Deportes",n:"Un equipo de fútbol español (actual o histórico)",d:"De Primera, Segunda o que haya estado ahí alguna vez.",t:[
+  "Real Madrid|Barcelona/Barça|Atlético de Madrid/Atleti|Sevilla|Betis|Valencia|Athletic/Athletic de Bilbao|Real Sociedad|Villarreal|Celta|Espanyol|Getafe|Osasuna|Granada|Málaga",
+  "Deportivo de La Coruña/Dépor/Deportivo|Zaragoza|Valladolid|Rayo Vallecano/Rayo|Mallorca|Las Palmas|Cádiz|Almería|Alavés|Girona|Leganés|Levante|Elche|Racing de Santander/Racing|Sporting de Gijón/Sporting|Real Oviedo/Oviedo|Tenerife|Córdoba|Huesca|Eibar|Albacete|Recreativo de Huelva/Recre|Xerez|Hércules",
+  "Numancia|Mirandés|Ponferradina|Lugo|Burgos|Cartagena|Amorebieta|Alcorcón|Fuenlabrada|Logroñés|Compostela|Mérida|Extremadura|Salamanca|Real Murcia|Castellón|Sabadell|Badajoz|Real Jaén|Algeciras|FC Andorra|Eldense|Racing de Ferrol|Ibiza|Gimnàstic de Tarragona/Nàstic|Lleida"]},
+ {c:"Deportes",n:"Un ganador del Balón de Oro",d:"De 1956 a hoy. Vale el apellido.",p:1,t:[
+  "Lionel Messi/Messi|Cristiano Ronaldo/Cristiano/CR7|Ronaldinho|Zinedine Zidane|Ronaldo Nazário/Ronaldo|Kaká|Luka Modrić|Karim Benzema|Rodri|Johan Cruyff|Alfredo Di Stéfano|Luís Figo",
+  "Michel Platini|Marco van Basten|Franz Beckenbauer|Rivaldo|Michael Owen|Pavel Nedvěd|Andriy Shevchenko|Fabio Cannavaro|Hristo Stoichkov|Roberto Baggio|George Weah|Ruud Gullit|Lothar Matthäus|Ousmane Dembélé|Eusébio|Luis Suárez Miramontes/Luisito Suárez",
+  "Stanley Matthews|Raymond Kopa|Omar Sívori|Josef Masopust|Lev Yashin|Denis Law|Bobby Charlton|Flórián Albert|George Best|Gianni Rivera|Gerd Müller|Oleg Blokhin|Allan Simonsen|Kevin Keegan|Karl-Heinz Rummenigge|Paolo Rossi|Igor Belanov|Jean-Pierre Papin|Matthias Sammer"]},
+ {c:"Deportes",n:"Un tenista famoso",d:"Hombres o mujeres, de cualquier época. Vale el apellido.",p:1,t:[
+  "Rafa Nadal/Rafael Nadal|Roger Federer|Novak Djokovic|Carlos Alcaraz|Serena Williams|Andy Murray|Pete Sampras|Andre Agassi|Steffi Graf|Arantxa Sánchez Vicario|Garbiñe Muguruza|Jannik Sinner",
+  "Venus Williams|Maria Sharapova|Martina Navratilova|Björn Borg|John McEnroe|Boris Becker|Ivan Lendl|Jimmy Connors|Conchita Martínez|Carlos Moyá|Juan Carlos Ferrero|Àlex Corretja|Sergi Bruguera|David Ferrer|Feliciano López|Roberto Bautista|Pablo Carreño|Paula Badosa|Stan Wawrinka|Juan Martín del Potro|Daniil Medvedev|Alexander Zverev|Dominic Thiem|Stefanos Tsitsipas|Iga Świątek|Aryna Sabalenka|Naomi Osaka|Coco Gauff|Kim Clijsters|Justine Henin|Martina Hingis|Monica Seles|Gustavo Kuerten|Marcelo Ríos|Gabriela Sabatini|Guillermo Vilas|Manolo Santana|Lleyton Hewitt|Marat Safin|Andy Roddick|Kei Nishikori",
+  "Rod Laver|Ken Rosewall|Roy Emerson|Ilie Năstase|Mats Wilander|Stefan Edberg|Michael Chang|Goran Ivanišević|Patrick Rafter|Thomas Muster|Yevgeny Kafelnikov|Albert Costa|Tommy Robredo|Nicolás Almagro|Fernando Verdasco|Marcel Granollers|Alejandro Davidovich|Anabel Medina|Virginia Ruano|Carla Suárez|Lilí Álvarez|Billie Jean King|Chris Evert|Margaret Court|Arthur Ashe|Yannick Noah|Gaël Monfils|Nick Kyrgios|Holger Rune|Casper Ruud|Taylor Fritz|Jasmine Paolini|Elena Rybakina|Ons Jabeur"]},
+ {c:"Deportes",n:"Un piloto de Fórmula 1",d:"De cualquier época. Vale el apellido.",p:1,t:[
+  "Fernando Alonso|Lewis Hamilton|Michael Schumacher|Ayrton Senna|Max Verstappen|Carlos Sainz|Charles Leclerc|Sebastian Vettel|Kimi Räikkönen|Alain Prost|Niki Lauda",
+  "Lando Norris|Oscar Piastri|George Russell|Sergio Pérez/Checo Pérez|Nico Rosberg|Jenson Button|Mark Webber|Daniel Ricciardo|Valtteri Bottas|Felipe Massa|Rubens Barrichello|Mika Häkkinen|Damon Hill|Nigel Mansell|Nelson Piquet|Jacques Villeneuve|Gilles Villeneuve|Juan Manuel Fangio|Jim Clark|Jackie Stewart|Emerson Fittipaldi|Pedro de la Rosa|Jaime Alguersuari|Esteban Ocon|Pierre Gasly|Yuki Tsunoda|Lance Stroll|Kevin Magnussen|Nico Hülkenberg|Alexander Albon|Kimi Antonelli",
+  "Alberto Ascari|Graham Hill|Jochen Rindt|James Hunt|Mario Andretti|Jody Scheckter|Alan Jones|Keke Rosberg|Jack Brabham|Stirling Moss|Gerhard Berger|Jean Alesi|Riccardo Patrese|Ralf Schumacher|David Coulthard|Heinz-Harald Frentzen|Juan Pablo Montoya|Giancarlo Fisichella|Jarno Trulli|Marc Gené|Roberto Merhi|Luis Pérez-Sala|Adrián Campos|Kamui Kobayashi|Pastor Maldonado|Romain Grosjean|Daniil Kvyat|Oliver Bearman|Isack Hadjar|Gabriel Bortoleto|Franco Colapinto|Liam Lawson"]},
+ {c:"Deportes",n:"Un jugador de la NBA (de cualquier época)",d:"Los españoles cuentan. Vale el apellido.",p:1,t:[
+  "Michael Jordan|LeBron James|Kobe Bryant|Stephen Curry|Shaquille O'Neal/Shaq|Magic Johnson|Larry Bird|Pau Gasol|Kevin Durant|Giannis Antetokounmpo|Luka Dončić|Tim Duncan|Dennis Rodman",
+  "Kareem Abdul-Jabbar|Wilt Chamberlain|Bill Russell|Hakeem Olajuwon|Scottie Pippen|Karl Malone|John Stockton|Allen Iverson|Dirk Nowitzki|Dwyane Wade|Kevin Garnett|Charles Barkley|Patrick Ewing|Steve Nash|Carmelo Anthony|Chris Paul|James Harden|Russell Westbrook|Kawhi Leonard|Nikola Jokić|Joel Embiid|Victor Wembanyama|Marc Gasol|Ricky Rubio|Serge Ibaka|José Manuel Calderón|Juancho Hernangómez|Willy Hernangómez|Manu Ginóbili|Tony Parker|Yao Ming|Vince Carter|Tracy McGrady|Ray Allen|Paul Pierce|Klay Thompson|Draymond Green|Anthony Davis|Ja Morant|Jayson Tatum|Damian Lillard|Devin Booker|Kyrie Irving|Derrick Rose",
+  "Fernando Martín|Rudy Fernández|Sergio Rodríguez|Raül López|Jorge Garbajosa|Santi Aldama|Usman Garuba|Álex Abrines|Nikola Mirotić|Isiah Thomas|Moses Malone|Julius Erving|Elgin Baylor|Jerry West|Oscar Robertson|George Mikan|David Robinson|Clyde Drexler|Reggie Miller|Gary Payton|Alonzo Mourning|Dikembe Mutombo|Pete Maravich|Bob Cousy|Kevin McHale|Dominique Wilkins|Penny Hardaway|Grant Hill|Shai Gilgeous-Alexander|Anthony Edwards|Jalen Brunson|Zion Williamson|Trae Young|Jimmy Butler|Paul George|Rudy Gobert|Domantas Sabonis|Arvydas Sabonis|Dražen Petrović|Toni Kukoč|Vlade Divac|Peja Stojaković"]},
+ {c:"Geografía",n:"Un país de África",d:"Hay 54.",t:[
+  "Marruecos|Egipto|Sudáfrica|Nigeria|Argelia|Túnez|Kenia|Senegal|Etiopía|Ghana|Camerún|Costa de Marfil|Guinea Ecuatorial|Libia|Mauritania",
+  "Mali|Angola|Mozambique|Tanzania|Uganda|Ruanda|Sudán|Somalia|Congo/República del Congo|República Democrática del Congo|Madagascar|Zimbabue|Zambia|Namibia|Botsuana|Níger|Chad|Gabón|Benín|Togo|Burkina Faso|Guinea|Sierra Leona|Liberia|Gambia|Cabo Verde|Eritrea|Sudán del Sur|Malaui",
+  "Yibuti|Esuatini/Suazilandia|Lesoto|Burundi|República Centroafricana|Guinea-Bisáu|Santo Tomé y Príncipe|Comoras|Seychelles|Mauricio"]},
+ {c:"Geografía",n:"Un país de Asia",d:"Del Mediterráneo oriental al Pacífico.",t:[
+  "China|Japón|India|Corea del Sur|Tailandia|Vietnam|Indonesia|Filipinas|Arabia Saudí/Arabia Saudita|Israel|Irán|Irak|Pakistán",
+  "Corea del Norte|Malasia|Singapur|Camboya|Laos|Birmania/Myanmar|Nepal|Bangladés|Sri Lanka|Afganistán|Mongolia|Kazajistán|Uzbekistán|Siria|Jordania|Líbano|Catar/Qatar|Emiratos Árabes Unidos|Kuwait|Yemen|Omán|Taiwán|Maldivas|Bután|Rusia|Turquía|Palestina|Georgia|Armenia|Azerbaiyán",
+  "Timor Oriental|Brunéi|Baréin|Turkmenistán|Kirguistán|Tayikistán|Chipre"]},
+ {c:"Geografía",n:"Un país de América",d:"Del norte, del centro, del sur o del Caribe.",t:[
+  "Estados Unidos|Canadá|México|Brasil|Argentina|Colombia|Chile|Perú|Venezuela|Cuba|Uruguay|Ecuador|Bolivia|Paraguay",
+  "Costa Rica|Panamá|Guatemala|Honduras|El Salvador|Nicaragua|República Dominicana|Haití|Jamaica|Bahamas|Puerto Rico|Trinidad y Tobago|Barbados",
+  "Belice|Guyana|Surinam|Granada|Dominica|Santa Lucía|San Vicente y las Granadinas|San Cristóbal y Nieves|Antigua y Barbuda"]},
+ {c:"Geografía",n:"Una comunidad autónoma o provincia española",d:"Vale cualquiera de las dos.",t:[
+  "Andalucía|Cataluña|Madrid|Galicia|Comunidad Valenciana/Valencia|País Vasco/Euskadi|Canarias|Baleares/Islas Baleares|Sevilla|Barcelona|Granada|Málaga|Murcia|Asturias|Cantabria|Navarra|Aragón",
+  "Castilla y León|Castilla-La Mancha|Extremadura|La Rioja|Ceuta|Melilla|Zaragoza|Alicante|Cádiz|Córdoba|Toledo|Salamanca|León|Burgos|Valladolid|Almería|Huelva|Jaén|Badajoz|Cáceres|Pontevedra|A Coruña/La Coruña|Tarragona|Girona/Gerona|Lleida/Lérida|Castellón|Vizcaya/Bizkaia|Guipúzcoa/Gipuzkoa|Álava/Araba|Santa Cruz de Tenerife|Las Palmas",
+  "Ourense/Orense|Lugo|Zamora|Palencia|Soria|Segovia|Ávila|Guadalajara|Cuenca|Albacete|Ciudad Real|Teruel|Huesca"]},
+ {c:"Geografía",n:"Una isla del mundo",d:"Islas sueltas, no archipiélagos enteros.",t:[
+  "Mallorca|Ibiza|Tenerife|Gran Canaria|Menorca|Lanzarote|Fuerteventura|Sicilia|Cerdeña|Córcega|Creta|Cuba|Groenlandia|Madagascar|Islandia|Hawái|Bali",
+  "La Palma|La Gomera|El Hierro|Formentera|Gran Bretaña|Irlanda|Tasmania|Borneo|Sumatra|Java|Nueva Guinea|Sri Lanka|Jamaica|Puerto Rico|La Española|Malta|Chipre|Rodas|Santorini|Mykonos|Corfú|Capri|Isla de Pascua|Tahití|Bora Bora|Zanzíbar|Mauricio|Phuket|Hokkaido|Honshu|Taiwán|Manhattan|Terranova",
+  "La Graciosa|Cabrera|Tabarca|Arousa|Ons|Alborán|Chiloé|Tierra del Fuego|Sajalín|Spitsbergen|Baffin|Socotra|Mindanao|Luzón|Kyushu|Shikoku|Okinawa|Jeju|Hainan|Célebes/Sulawesi|Lombok|Elba|Ischia|Lampedusa|Gozo|Ítaca|Lesbos|Naxos|Skye|Wight|Isla de Man|Jersey|Guernsey|Madeira|Reunión|Martinica|Guadalupe|Aruba|Curazao"]},
+ {c:"Geografía",n:"Un río de España",d:"Los grandes valen poco; los afluentes, mucho.",t:[
+  "Ebro|Tajo|Duero|Guadalquivir|Guadiana|Miño|Júcar|Segura|Genil|Turia",
+  "Nervión|Llobregat|Ter|Sil|Esla|Pisuerga|Manzanares|Jarama|Henares|Tormes|Bidasoa|Darro|Guadalete|Tinto|Odiel|Guadalhorce|Segre|Cinca|Gállego|Jalón|Alberche|Tiétar|Alagón|Zújar|Navia|Nalón|Sella|Deva|Pas|Besaya",
+  "Arlanza|Arlanzón|Carrión|Adaja|Eresma|Riaza|Huerva|Matarraña|Mijares|Palancia|Vinalopó|Serpis|Cabriel|Mundo|Guadalentín|Almanzora|Andarax|Guadiaro|Guadalmedina|Guadalfeo|Fardes|Guadiana Menor|Jándula|Guadalimar|Lozoya|Guadarrama|Najerilla|Arga|Aragón|Ega|Irati|Urola|Oria|Urumea|Cadagua|Ulla|Tambre|Lérez|Eo|Narcea|Fluvià|Muga|Besòs|Francolí"]},
+ {c:"Geografía",n:"Un pueblo o ciudad de la provincia de Granada",d:"De la Vega, la Alpujarra, la Costa o el Altiplano.",t:[
+  "Granada|Motril|Almuñécar|Loja|Guadix|Baza|Armilla|Maracena|Salobreña|Santa Fe",
+  "Las Gabias|Atarfe|Huétor Vega|Ogíjares|Pinos Puente|Íllora|Montefrío|Alhama de Granada|Órgiva|Lanjarón|Pampaneira|Capileira|Monachil|La Zubia|Cenes de la Vega|Peligros|Albolote|Pulianas|Alfacar|Víznar|Huéscar|Iznalloz|Alhendín|Churriana de la Vega|Cúllar Vega|Vegas del Genil|Fuente Vaqueros|Chauchina|Láchar",
+  "Bubión|Trevélez|Pórtugos|Busquístar|Bérchules|Cádiar|Ugíjar|Válor|Nigüelas|Dúrcal|Padul|Albuñuelas|Lecrín|Jete|Otívar|Lentegí|Ítrabo|Molvízar|Vélez de Benaudalla|Gualchos|Polopos|Albuñol|Sorvilán|Rubite|Lújar|Castril|Galera|Orce|Castilléjar|Benamaurel|Cortes de Baza|Zújar|Freila|Caniles|Gor|Gorafe|Purullena|Marchal|Lugros|Jérez del Marquesado|Lanteira|Aldeire|La Calahorra|Dólar|Ferreira|Huéneja|Moclín|Colomera|Montillana|Guadahortuna|Píñar|Huétor Tájar|Salar|Moraleda de Zafayona|Algarinejo|Zagra|Huétor Santillán|Quéntar|Güéjar Sierra|Dílar|Gójar|Beas de Granada"]},
+ {c:"Historia",n:"Un rey o reina de España (desde los Reyes Católicos)",d:"Vale el nombre con número o con su apodo.",t:[
+  "Isabel la Católica/Isabel I|Fernando el Católico/Fernando II|Carlos I/Carlos V|Felipe II|Felipe VI|Juan Carlos I|Alfonso XIII|Felipe V|Carlos III",
+  "Juana la Loca/Juana I|Felipe el Hermoso/Felipe I|Felipe III|Felipe IV|Carlos II/Carlos el Hechizado|Fernando VI|Carlos IV|Fernando VII|Isabel II|Amadeo I/Amadeo de Saboya|Alfonso XII",
+  "José I/José Bonaparte/Pepe Botella|Luis I"]},
+ {c:"Historia",n:"Un presidente de Estados Unidos",d:"De Washington a hoy. Vale el apellido.",p:1,t:[
+  "George Washington|Abraham Lincoln|John F. Kennedy/Kennedy|Barack Obama|Donald Trump|Joe Biden|George W. Bush|Bill Clinton|Ronald Reagan|Richard Nixon|Franklin D. Roosevelt|Thomas Jefferson",
+  "Jimmy Carter|Gerald Ford|Lyndon B. Johnson|Dwight D. Eisenhower/Eisenhower|Harry S. Truman|Herbert Hoover|Woodrow Wilson|John Adams|James Madison|James Monroe|Andrew Jackson|Ulysses S. Grant|William Howard Taft|Calvin Coolidge|Warren G. Harding|William McKinley|Grover Cleveland|James K. Polk|Theodore Roosevelt|George H. W. Bush",
+  "Martin Van Buren|William Henry Harrison|John Tyler|Zachary Taylor|Millard Fillmore|Franklin Pierce|James Buchanan|Rutherford B. Hayes|James A. Garfield|Chester A. Arthur|Benjamin Harrison|John Quincy Adams|Andrew Johnson"]},
+ {c:"Historia",n:"Un emperador romano",d:"De Augusto a Rómulo Augústulo.",t:[
+  "Augusto|Nerón|Calígula|Trajano|Adriano|Marco Aurelio|Constantino|Tiberio|Claudio|Cómodo",
+  "Vespasiano|Tito|Domiciano|Nerva|Antonino Pío|Septimio Severo|Caracalla|Diocleciano|Teodosio|Galba|Otón|Vitelio|Heliogábalo|Juliano/Juliano el Apóstata|Valeriano|Aureliano",
+  "Lucio Vero|Pértinax|Didio Juliano|Macrino|Alejandro Severo|Maximino el Tracio|Gordiano III|Filipo el Árabe|Decio|Galieno|Claudio el Gótico|Probo|Caro|Maximiano|Constancio Cloro|Galerio|Majencio|Licinio|Constancio II|Joviano|Valentiniano I|Valente|Graciano|Honorio|Arcadio|Rómulo Augústulo"]},
+ {c:"Historia",n:"Un pueblo o civilización de la Antigüedad",d:"Vale en plural: romanos, íberos…",t:[
+  "egipcios|romanos|griegos|mayas|aztecas|incas|persas|vikingos|fenicios|celtas|íberos|cartagineses",
+  "sumerios|babilonios|asirios|hititas|etruscos|visigodos|ostrogodos|vándalos|suevos|hunos|mongoles|olmecas|celtíberos|tartesios|lusitanos|galos|germanos|bizantinos|hebreos|minoicos|micénicos",
+  "acadios|elamitas|medos|escitas|sármatas|partos|nabateos|filisteos|toltecas|zapotecas|mixtecas|teotihuacanos|nazcas|mochicas|alanos|francos|sajones|pictos|dacios|tracios|ilirios|turdetanos|vacceos|vetones|cántabros|astures|galaicos|vascones|oretanos|bastetanos"]},
+ {c:"Historia",n:"Una batalla o guerra famosa",d:"Vale con o sin «batalla de».",t:[
+  "Segunda Guerra Mundial|Primera Guerra Mundial|Guerra Civil Española|Waterloo|Guerra de Vietnam|Guerra Fría|Guerra de Troya|Trafalgar|Las Navas de Tolosa|Desembarco de Normandía/Día D|Guerra de la Independencia|Guerra de Secesión",
+  "Stalingrado|Lepanto|Termópilas|Guerra del Golfo|Guerra de Corea|Guerra de los Cien Años|Guerra de los Treinta Años|Bailén|Covadonga|Guadalete|Austerlitz|Guerra de Cuba|Guerra de Irak|Guerra de Afganistán|Guerras Púnicas|Guerras Médicas|Guerra del Peloponeso|Pearl Harbor|Midway|Verdún|Somme|Batalla del Ebro|Gettysburg|Guerra de las Malvinas|Guerra de los Seis Días|Guerra de Crimea|Cruzadas|Reconquista|Hastings|Pavía",
+  "Cannas|Zama|Alesia|Maratón|Salamina|Gaugamela|Accio|Poitiers|Simancas|Alarcos|Aljubarrota|Rocroi|San Quintín|Almansa|Talavera|Arapiles|Vitoria|Ayacucho|Annual|Brunete|Teruel|Belchite|El Alamein|Las Ardenas|Kursk|Iwo Jima|Okinawa|Dunkerque|Batalla de Inglaterra|Leipzig|Borodinó|Guerra de Sucesión Española|Guerra de los Siete Años|Guerra de las Dos Rosas|Guerra del Opio|Guerra de los Bóeres|Guerra del Pacífico|Guerra del Chaco"]},
+ {c:"Política",n:"Un partido político español (actual o histórico)",d:"Vale la sigla o el nombre.",t:[
+  "PSOE|Partido Popular/PP|Vox|Podemos|Sumar|Ciudadanos/Cs|Izquierda Unida/IU|ERC/Esquerra Republicana|Junts|PNV|EH Bildu/Bildu",
+  "UCD|CDS|CiU|Convergència|Más Madrid|Compromís|BNG|Coalición Canaria|UPyD|Alianza Popular/AP|Partido Comunista/PCE|Falange|CUP|Teruel Existe|Adelante Andalucía|Más País|UPN|PAR|CHA|Partido Andalucista|Foro Asturias|PRC|Se Acabó la Fiesta",
+  "CEDA|Partido Radical|Izquierda Republicana|POUM|Unió Democràtica|Herri Batasuna|Euskadiko Ezkerra|Eusko Alkartasuna|Aralar|Geroa Bai|Nueva Canarias|Partido Carlista|Fuerza Nueva|PACMA|Escaños en Blanco|Los Verdes|Equo"]},
+ {c:"Arte",n:"Un pintor o pintora famosos",d:"De cualquier época. Vale el apellido.",p:1,t:[
+  "Pablo Picasso|Diego Velázquez|Francisco de Goya|Salvador Dalí|Vincent van Gogh|Leonardo da Vinci|Miguel Ángel|Claude Monet|Rembrandt|Frida Kahlo|El Greco|Joaquín Sorolla|Joan Miró",
+  "Bartolomé Esteban Murillo|Francisco de Zurbarán|José de Ribera|Pedro Pablo Rubens|Tiziano|Rafael Sanzio|Sandro Botticelli|Caravaggio|Johannes Vermeer|Gustav Klimt|Edvard Munch|Paul Cézanne|Pierre-Auguste Renoir|Edgar Degas|Édouard Manet|Paul Gauguin|Henri Matisse|Vasili Kandinski|Piet Mondrian|René Magritte|Andy Warhol|Jackson Pollock|Edward Hopper|William Turner|El Bosco|Alberto Durero|Diego Rivera|Fernando Botero|Juan Gris|Antoni Tàpies|Julio Romero de Torres|Katsushika Hokusai/Hokusai|Jean-Michel Basquiat|Banksy",
+  "Giotto|Masaccio|Fra Angelico|Piero della Francesca|Andrea Mantegna|Jan van Eyck|Pieter Brueghel|Hans Holbein|Tintoretto|Paolo Veronese|Nicolas Poussin|Antoine Watteau|Jean-Honoré Fragonard|Eugène Delacroix|Jean-Auguste-Dominique Ingres|Gustave Courbet|Jean-François Millet|Georges Seurat|Henri de Toulouse-Lautrec|Amedeo Modigliani|Marc Chagall|Paul Klee|Egon Schiele|Mark Rothko|Roy Lichtenstein|David Hockney|Francis Bacon|Lucian Freud|Mariano Fortuny|Santiago Rusiñol|Ramon Casas|Ignacio Zuloaga|José Gutiérrez Solana|María Blanchard|Maruja Mallo|Remedios Varo|Antonio López|Miquel Barceló|Antonio Saura|Manolo Millares"]},
+ {c:"Arte",n:"Un monumento o edificio famoso de España",d:"Catedrales, palacios, castillos, ruinas romanas…",t:[
+  "Alhambra|Sagrada Familia|Mezquita de Córdoba|Giralda|Acueducto de Segovia|Museo del Prado/El Prado|Palacio Real|Puerta de Alcalá|Catedral de Santiago|Museo Guggenheim/Guggenheim|Park Güell|Torre del Oro|Plaza de España|Ciudad de las Artes y las Ciencias|Monasterio de El Escorial/El Escorial",
+  "Catedral de Burgos|Catedral de León|Real Alcázar de Sevilla|Alcázar de Segovia|Casa Batlló|La Pedrera/Casa Milà|Plaza Mayor de Madrid|Fuente de Cibeles/Cibeles|Templo de Debod|Teatro romano de Mérida|Muralla de Ávila|Generalife|Catedral de Sevilla|Torre de Hércules|Palau de la Música Catalana|Valle de Cuelgamuros/Valle de los Caídos|Catedral de Toledo|Catedral de Granada|Torre Agbar|Puerta de Europa/Torres KIO|Medina Azahara|Alcazaba de Málaga|Puente Nuevo de Ronda|Catedral de Palma|Lonja de la Seda|Basílica del Pilar|Aljafería",
+  "San Juan de la Peña|Monasterio de Poblet|Montserrat|Santa María del Naranco|San Miguel de Lillo|Monasterio de Silos|Monasterio de Guadalupe|Catedral de Cuenca|Casas Colgadas|Universidad de Salamanca|Casa de las Conchas|Palacio de Carlos V|Capilla Real|Cartuja de Granada|Bañuelo|Torres de Quart|Torres de Serranos|Micalet/Miguelete|Catedral de Jaén|Sacra Capilla del Salvador|Puente de Alcántara|Arco de Bará|Teatro romano de Cartagena|Itálica|Baelo Claudia|Numancia|Castillo de Loarre|Castillo de Belmonte|Castillo de Coca|Castillo de Peñafiel|Alcázar de Toledo|Palacio de Cristal"]},
+ {c:"Arte",n:"Un monumento famoso del mundo",d:"Incluidas las maravillas del mundo antiguo.",t:[
+  "Torre Eiffel|Coliseo|Estatua de la Libertad|Gran Muralla China|Taj Mahal|Pirámides de Guiza|Machu Picchu|Big Ben|Cristo Redentor|Chichén Itzá|Partenón|Torre de Pisa|Petra|Stonehenge",
+  "Arco de Triunfo|Notre Dame|Museo del Louvre/Louvre|Puerta de Brandeburgo|Kremlin|Plaza Roja|Burj Khalifa|Ópera de Sídney|Golden Gate|Empire State|Torre de Londres|Tower Bridge|Abadía de Westminster|Palacio de Buckingham|Basílica de San Pedro|Capilla Sixtina|Fontana di Trevi|Panteón de Agripa/Panteón|Angkor Wat|Ciudad Prohibida|Moáis|Muro de las Lamentaciones|Cúpula de la Roca|Santa Sofía|Mezquita Azul|Neuschwanstein|Atomium|Manneken Pis|Monte Rushmore|Casa Blanca|Torre CN|Esfinge de Guiza|Abu Simbel|Templo de Karnak|Valle de los Reyes|Palacio de Versalles/Versalles|Mont Saint-Michel|Torre de Belém|Acrópolis",
+  "Borobudur|Bagan|Palacio de Potala|Templo del Cielo|Fushimi Inari|Kinkaku-ji|Castillo de Himeji|Templo de Luxor|Leptis Magna|Gran Zimbabue|Teotihuacán|Tikal|Palenque|Tiahuanaco|Catedral de San Basilio|Hermitage|Peterhof|Castillo de Praga|Puente de Carlos|Duomo de Florencia|Ponte Vecchio|Puente de Rialto|Basílica de San Marcos|Palacio Ducal|Pompeya|Meteora|Delfos|Éfeso|Persépolis|Palmira|Baalbek|Faro de Alejandría|Coloso de Rodas|Jardines colgantes de Babilonia|Mausoleo de Halicarnaso|Templo de Artemisa|Estatua de Zeus en Olimpia"]},
+ {c:"Cómics",n:"Un personaje de tebeo español",d:"De Bruguera y compañía.",t:[
+  "Mortadelo|Filemón|Zipi|Zape|Superlópez|Capitán Trueno",
+  "Rompetechos|Carpanta|Pepe Gotera|Otilio|Botones Sacarino|Anacleto|Bacterio/Profesor Bacterio|el Súper|Ofelia|Jabato|Guerrero del Antifaz|Makinavaja",
+  "Doña Urraca|Las hermanas Gilda|Don Pantuflo Zapatilla|Tribulete|Pafman|Cuttlas|Petra, criada para todo|Sir Tim O'Theo"]},
+ {c:"Cómics",n:"Un superhéroe o supervillano",d:"De Marvel, DC o cualquier editorial.",t:[
+  "Superman|Batman|Spider-Man/Spiderman/Hombre Araña|Iron Man|Capitán América|Hulk|Thor|Wonder Woman/Mujer Maravilla|Flash|Joker|Lobezno/Wolverine|Deadpool|Pantera Negra/Black Panther|Thanos",
+  "Aquaman|Linterna Verde|Viuda Negra|Ojo de Halcón|Doctor Strange|Ant-Man|Capitana Marvel|Bruja Escarlata|Visión|Loki|Magneto|Profesor X|Tormenta|Cíclope|Jean Grey|Lex Luthor|Harley Quinn|Catwoman|Robin|Batgirl|Supergirl|Daredevil|Castigador/Punisher|Venom|Duende Verde|Doctor Octopus|Estela Plateada|Galactus|Doctor Muerte|La Cosa|Antorcha Humana|Mujer Invisible|Mister Fantástico|Groot|Rocket|Star-Lord|Gamora|Drax|Hellboy|Spawn|Shazam|Cyborg|Bane|Pingüino|Dos Caras|Acertijo/Enigma|Hiedra Venenosa|Espantapájaros|Darkseid|Ultrón",
+  "Detective Marciano|Zatanna|Flecha Verde|Canario Negro|Nightwing|Raven|Starfire|Chico Bestia|Hawkman|Átomo|Escarabajo Azul|Constantine|La Cosa del Pantano|Caballero Luna|Luke Cage|Jessica Jones|Puño de Hierro|Blade|Motorista Fantasma/Ghost Rider|Namor|Bestia|Rondador Nocturno|Pícara|Gambito|Coloso|Kitty Pryde|Psylocke|Cable|Juggernaut|Mística|Dientes de Sable|Apocalipsis|Kang|Cráneo Rojo|Kingpin|Mysterio|Buitre|Rino|Electro|Carnage|Black Adam|Brainiac|Doomsday|Sinestro|Deathstroke|Ra's al Ghul|Mr. Freeze|Killer Croc"]},
+ {c:"Anime y manga",n:"Un anime o manga",d:"De los de toda la vida a los de ahora.",t:[
+  "Dragon Ball/Bola de Dragón|One Piece|Naruto|Pokémon|Doraemon|Shin-chan|Oliver y Benji/Captain Tsubasa|Los caballeros del Zodiaco/Saint Seiya|Death Note|Ataque a los titanes/Shingeki no Kyojin|Sailor Moon",
+  "Bleach|Fullmetal Alchemist|Hunter x Hunter|My Hero Academia|Guardianes de la noche/Kimetsu no Yaiba/Demon Slayer|Jujutsu Kaisen|Chainsaw Man|One Punch Man|Evangelion/Neon Genesis Evangelion|Cowboy Bebop|Akira|Ghost in the Shell|Detective Conan|Inuyasha|Ranma ½/Ranma|Doctor Slump|Heidi|Marco|Mazinger Z|Digimon|Yu-Gi-Oh!|Beyblade|Sakura, cazadora de cartas|Spy x Family|Tokyo Ghoul|Haikyu!!|Fairy Tail|Black Clover|Your Name|El viaje de Chihiro|Mi vecino Totoro|La princesa Mononoke|Dr. Stone|Frieren|Solo Leveling|Blue Lock|Oshi no Ko|Dandadan|Vinland Saga|Berserk|JoJo's Bizarre Adventure/JoJo|Rurouni Kenshin/Kenshin|City Hunter|Slam Dunk|Hamtaro",
+  "Lupin III|Astroboy|Kimba|Candy Candy|Campeones de la liga/Mila y Shiro|La aldea del arce|Nadia|Code Geass|Steins;Gate|Monster|Perfect Blue|Serial Experiments Lain|FLCL|Gurren Lagann|Kill la Kill|Mob Psycho 100|Made in Abyss|Violet Evergarden|Clannad|Toradora!|K-On!|Nana|Fruits Basket|Gintama|Hellsing|Trigun|Samurai Champloo|Mushishi|Bakuman|Assassination Classroom|The Promised Neverland|Bocchi the Rock!|Kaguya-sama|Horimiya"]},
+ {c:"Dibujos animados",n:"Una serie de dibujos animados",d:"Infantiles o para adultos, de cualquier país.",t:[
+  "Los Simpson|Bob Esponja|Padre de familia|Futurama|Tom y Jerry|Los Picapiedra|Scooby-Doo|Pocoyó|Peppa Pig|Doraemon|Shin-chan|Hora de aventuras|El asombroso mundo de Gumball/Gumball|South Park|Rick y Morty",
+  "Los Supersónicos|Las Supernenas|El laboratorio de Dexter|Johnny Bravo|Coraje, el perro cobarde|Ed, Edd y Eddy|Phineas y Ferb|Kim Possible|Los padrinos mágicos|Rugrats|¡Oye, Arnold!|Daria|Los Pitufos|David el Gnomo|La abeja Maya|Los Fruittis|Las tres mellizas|La vuelta al mundo de Willy Fog/Willy Fog|D'Artacán y los tres mosqueperros|Ruy, el pequeño Cid|Bob el constructor|Pingu|Gravity Falls|Steven Universe|Avatar: la leyenda de Aang/Avatar|Las Tortugas Ninja|He-Man|Thundercats|Inspector Gadget|Los Snorkels|Dora la exploradora|Bluey|La Patrulla Canina|Prodigiosa: Las aventuras de Ladybug/Ladybug|BoJack Horseman|Big Mouth|American Dad|Bob's Burgers|Archer|Beavis y Butt-Head|El rey de la colina",
+  "Los Mumin|Mofli|Calimero|La familia Telerín|Don Gato|Los Diminutos|Los Trotamúsicos|Érase una vez el hombre|Érase una vez la vida|Los osos Gummi|Chip y Chop|Patoaventuras|Pato Darkwing|Gárgolas|Animaniacs|Pinky y Cerebro|Tiny Toons|Freakazoid|Doug|Ren y Stimpy|Rocko|Invasor Zim|Samurai Jack|Mucha Lucha|Las macabras aventuras de Billy y Mandy|Foster, la casa de los amigos imaginarios|Código: KND|Totally Spies|Jimmy Neutrón|Más allá del jardín|Star vs. las fuerzas del mal|Amphibia|The Owl House|Arcane|Invencible|Hazbin Hotel|Historias corrientes|Escandalosos"]},
+ {c:"Tecnología",n:"Una empresa tecnológica o una app",d:"Marcas de móviles, redes sociales, apps, webs…",t:[
+  "Apple|Google|Microsoft|Amazon|Facebook|Instagram|WhatsApp|TikTok|Samsung|Netflix|YouTube|Twitter/X|Spotify",
+  "Tesla|Meta|Sony|Intel|IBM|Nvidia|Huawei|Xiaomi|LG|Nokia|Motorola|HP|Dell|Lenovo|Asus|Uber|Airbnb|Telegram|Snapchat|LinkedIn|Pinterest|Twitch|Discord|Reddit|Zoom|Wikipedia|Shein|Temu|AliExpress|eBay|PayPal|Bizum|Wallapop|Glovo|Cabify|Idealista|Tinder|Duolingo|Canva|OpenAI|ChatGPT",
+  "Oracle|SAP|Cisco|AMD|Qualcomm|ARM|TSMC|Adobe|Salesforce|Dropbox|Slack|Trello|Notion|Shazam|Waze|Skype|Myspace|Tuenti|Terra|Yahoo|Altavista|Messenger|Fotolog|Vine|BlackBerry|Palm|Atari|Commodore|Sinclair|Amstrad|Olivetti|Xerox|Kodak|Polaroid|Telefónica|Indra|Amadeus|Revolut|N26|Booking|Trivago|Skyscanner|Deliveroo|Just Eat|BeReal|Threads|Bluesky|Mastodon|Signal"]},
+ {c:"Tecnología",n:"Un lenguaje de programación",d:"HTML y CSS no cuentan.",t:[
+  "Python|Java|JavaScript|C|C++|PHP|SQL|C#",
+  "Ruby|Swift|Kotlin|Go|Rust|TypeScript|R|MATLAB|Perl|Scala|Visual Basic|Pascal|COBOL|Fortran|Ensamblador|Lua|Dart|Haskell|Julia|Objective-C|Bash|PowerShell|Scratch|Logo|BASIC",
+  "Lisp|Prolog|Erlang|Elixir|Clojure|F#|OCaml|Ada|Smalltalk|Delphi|Groovy|Zig|Nim|Crystal|Elm|Racket|Scheme|APL|Forth|Simula|ALGOL|Modula-2|Brainfuck|Solidity|VHDL|Verilog|Haxe|ActionScript|CoffeeScript|Raku|Tcl|AWK|Mojo"]},
+ {c:"Cultura general",n:"Algo que te llevarías a la playa",d:"Objetos, comida o bebida.",t:[
+  "toalla|sombrilla|crema solar|bañador|gafas de sol|chanclas|nevera|pelota|cubo|pala|gorra|bikini",
+  "tumbona|silla plegable|colchoneta|flotador|palas|libro|revista|bocadillo|tortilla|sandía|agua|aletas|gafas de bucear|tubo|rastrillo|pareo|sombrero|abanico|altavoz|móvil|cometa|capazo|cortavientos|tabla de surf|tabla de paddle surf|bodyboard|aftersun",
+  "neopreno|prismáticos|escarpines/cangrejeras|frisbee|raqueta|toldo|termo|táper|filetes empanados|gazpacho|cerveza|caña de pescar|salvavidas|protector labial|ventilador portátil|pinzas|bolsa de basura|botiquín"]},
+ {c:"Cultura general",n:"Algo que hay en un aula",d:"Material escolar, mobiliario, personas…",t:[
+  "pizarra|tiza|mesa|silla|libro|cuaderno|lápiz|bolígrafo/boli|goma|sacapuntas|mochila|regla|estuche|profesor|alumno",
+  "borrador|rotulador|tijeras|pegamento|compás|transportador|escuadra|cartabón|mapa|globo terráqueo/bola del mundo|papelera|perchero|ordenador|proyector|pizarra digital|corcho|calendario|reloj|calculadora|diccionario|agenda|carpeta|folio|cartulina|plastilina|ceras|témperas|pupitre",
+  "tablón de anuncios|crucifijo|pizarrín|plumier|punzón|grapadora|clip|chincheta|típex/corrector|celo|babi|flauta dulce/flauta|bata|encerado|armario|estantería|persiana|radiador|extintor"]},
+ {c:"Cultura general",n:"Un oficio o profesión",d:"En masculino o femenino.",t:[
+  "médico|profesor|bombero|policía|abogado|enfermero|ingeniero|arquitecto|cocinero|camarero|panadero|carpintero|fontanero|electricista|peluquero|veterinario|dentista|piloto|periodista|actor",
+  "albañil|mecánico|pintor|jardinero|agricultor|ganadero|pescador|carnicero|frutero|cartero|taxista|farmacéutico|psicólogo|juez|notario|contable|economista|informático|programador|diseñador|fotógrafo|músico|cantante|bailarín|escritor|traductor|azafato|socorrista|militar|guardia civil|sacerdote|monja|secretario|recepcionista|dependiente|cajero|repartidor|barrendero|butanero|cerrajero|zapatero|sastre|modista|relojero|joyero",
+  "herrero|alfarero|tonelero|curtidor|guarnicionero|talabartero|afilador|sereno|deshollinador|tornero|soldador|calderero|ebanista|tapicero|vidriero|cantero|marmolista|escayolista|gruista|estibador|farero|guardabosques|apicultor|pastor|quesero|enólogo|sumiller|catador|perfumista|tanatopractor|forense|anestesista|podólogo|logopeda|ortodoncista|óptico|archivero|bibliotecario|restaurador|actuario|auditor|procurador|registrador|diplomático|cónsul|astronauta"]},
+];
+
+const OLD_TOPICS={"jugador de la España":"Deportes","español es lengua oficial":"Geografía","capital europea":"Geografía","Navidad":"Gastronomía","paella":"Gastronomía","200.000":"Geografía","boda":"Cultura general","flamenco":"Música","bar de toda":"Cultura general","país de Europa":"Geografía","fruta":"Gastronomía","mar":"Animales","instrumento":"Música","deporte":"Deportes","color":"Cultura general","capital de un país":"Geografía","cocina":"Cultura general","empiece por Z":"Lengua","tabla periódica":"Ciencia"};
+DATA.forEach(c=>{if(!c.c){for(const k in OLD_TOPICS)if(c.n.includes(k)){c.c=OLD_TOPICS[k];break}if(!c.c)c.c="Cultura general"}});
+DATA.push(...TRIVIA);
+
 const TIER={1:{name:"Común",pts:1,burn:-1,cls:"t1"},2:{name:"Medio",pts:2,burn:2,cls:"t2"},3:{name:"Rara",pts:3,burn:4,cls:"t3"}};
 const MAXF=48, MINF=28;
 
@@ -389,11 +652,13 @@ const MAXF=48, MINF=28;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
-const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9 ]/g," ")
-  .replace(/^\s*(el|la|los|las|un|una)\s+/,"").replace(/\s+/g," ").trim();
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9+# ]/g," ")
+  .replace(/^\s*(batalla (de las|de los|de la|del|de)|el|la|los|las|un|una)\s+/,"").replace(/\s+/g," ").trim();
 function lev(a,b){if(Math.abs(a.length-b.length)>1)return 9;const d=[...Array(b.length+1).keys()];
   for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return d[b.length]}
-function buildCat(c){const map=new Map(),list=[];c.t.forEach((str,i)=>str.split("|").forEach(e=>{const al=e.split("/");const it={canon:al[0],tier:i+1};list.push(it);al.forEach(a=>map.set(norm(a),it))}));return{name:c.n,map,list}}
+function buildCat(c){const map=new Map(),list=[];c.t.forEach((str,i)=>str.split("|").forEach(e=>{const al=e.split("/");const it={canon:al[0],tier:i+1};list.push(it);
+  if(c.p){const w=al[0].split(/\s+/);if(w.length>1&&w[w.length-1].length>=4)al.push(w[w.length-1]);if(w.length>=3)al.push(w.slice(-2).join(" "))}
+  al.forEach(a=>{const k=norm(a);if(k&&!map.has(k))map.set(k,it)})}));return{name:c.n,map,list}}
 const CATS=DATA.map(buildCat);
 function lookup(cat,raw){const k=norm(raw);if(!k)return null;if(cat.map.has(k))return cat.map.get(k);
   if(k.length>=5){for(const [key,it] of cat.map){if(key.length>=5&&lev(k,key)<=1)return it}}return null}
@@ -456,6 +721,8 @@ const TEMPLATES=[
   body:"?item wdt:P31 wd:Q5398426 ; wdt:P495 wd:SEED .",
   seeds:["España","Argentina","México","Colombia","Estados Unidos","Reino Unido","Japón","Corea del Sur","Francia","Italia","Alemania","Chile","Turquía","Suecia","Dinamarca"]},
 ];
+TEMPLATES.splice(0,TEMPLATES.length,...TEMPLATES.filter(t=>!["muni","born","river","mount","tv","album"].includes(t.k)));
+const WD_TOPIC={dir:"Cine",act:"Cine",song:"Música",club:"Deportes",natl:"Deportes",book:"Libros",paint:"Arte",award:"Premios",game:"Videojuegos",char:"Ficción"};
 const wdTimeout=ms=>{const c=new AbortController();setTimeout(()=>c.abort(),ms);return c.signal};
 const seedParts=s=>{const [q,n]=s.split("|");return{q,n:n||q}};
 async function wdSearch(term){
@@ -487,13 +754,15 @@ function buildWdCat(t,seed,rows){
     if(t.person&&/\s/.test(canon)){const w=canon.split(/\s+/);const last=w[w.length-1];if(last.length>=4)alias.add(last);if(w.length>=3)alias.add(w.slice(-2).join(" "))}
     entries.push({canon,alias:[...alias].filter(a=>a&&a.length>=2),sl:+(b.sl&&b.sl.value)||0});
   }
-  if(entries.length<MIN_ANSWERS)return null;
   entries.sort((a,b)=>b.sl-a.sl);
+  /* solo respuestas con cierta fama: que no sean demasiado raras */
+  entries.splice(0,entries.length,...entries.filter(e=>e.sl>=8).slice(0,350));
+  if(entries.length<MIN_ANSWERS)return null;
   const n=entries.length,c1=Math.max(3,Math.round(n*.2)),c2=c1+Math.round(n*.35);
   const map=new Map(),list=[];
   entries.forEach((e,i)=>{const it={canon:e.canon,tier:i<c1?1:i<c2?2:3,sl:e.sl};list.push(it);
     for(const a of e.alias){const k=norm(a);if(k&&!map.has(k))map.set(k,it)}});
-  return{name:t.name(seed.n),hint:`${t.hint} Hay ${n} respuestas válidas.`,map,list,src:"wd"};
+  return{name:t.name(seed.n),hint:`${t.hint} Hay ${n} respuestas válidas.`,map,list,src:"wd",topic:WD_TOPIC[t.k]||"Cultura general"};
 }
 /* historial para no repetir categorías entre partidas */
 const HKEY="cabezon-historial";
@@ -506,23 +775,26 @@ function pickCombo(){
   if(!all.length){TEMPLATES.forEach(t=>t.seeds.forEach(s=>{const k=t.k+":"+s;if(!SESSION_USED.has(k))all.push([t,s,k])}))}
   return all.length?all[Math.floor(Math.random()*all.length)]:null;
 }
-let WD_OK=true,PREP=[],PREPPING=0;
-async function prepCategory(){
-  if(!WD_OK||PREPPING>=2||PREP.length>=2)return;PREPPING++;
-  try{
-    for(let tries=0;tries<5&&PREP.length<2;tries++){
-      const c=pickCombo();if(!c)break;const [t,s,k]=c;SESSION_USED.add(k);const seed=seedParts(s);
-      try{
-        const qid=await wdSearch(seed.q);if(!qid)continue;
-        const rows=await wdQuery(t.body,qid);const cat=buildWdCat(t,seed,rows);
-        if(cat){cat.key=k;PREP.push(cat)}
-      }catch(e){if(e&&(e.name==="TypeError"||e.name==="AbortError"))tries++;}
-    }
-  }catch(e){}
-  PREPPING--;if(PREP.length)WD_FAILS=0;
-  if(!PREP.length&&PREPPING===0){/* si Wikidata no responde nunca, dejamos de insistir */ WD_FAILS=(WD_FAILS||0)+1;if(WD_FAILS>=3)WD_OK=false}
+async function wdMake(){
+  const c=pickCombo();if(!c)return null;const [t,s,k]=c;SESSION_USED.add(k);const seed=seedParts(s);
+  const qid=await wdSearch(seed.q);if(!qid)return null;
+  const cat=buildWdCat(t,seed,await wdQuery(t.body,qid));if(cat)cat.key=k;return cat;
 }
-let WD_FAILS=0;
+/* cola de categorías listas: se rellena en segundo plano mientras se juega */
+let PREP=[],PREPPING=0,WD_OK=true,WP_OK=false,WD_FAILS=0,WP_FAILS=0;
+async function prepCategory(){
+  if((!WD_OK&&!WP_OK)||PREPPING>=2||PREP.length>=2)return;PREPPING++;
+  for(let tries=0;tries<6&&PREP.length<2&&(WD_OK||WP_OK);tries++){
+    const useWp=false;
+    try{const cat=await wdMake();
+      if(useWp)WP_FAILS=0;else WD_FAILS=0;
+      if(cat)PREP.push(cat);
+    }catch(e){
+      if(useWp){if(++WP_FAILS>=3)WP_OK=false}else{if(++WD_FAILS>=3)WD_OK=false}
+    }
+  }
+  PREPPING--;
+}
 /* categorías de siempre, como respaldo */
 let LOCAL_DECK=[];
 function localCategory(){
@@ -530,10 +802,10 @@ function localCategory(){
   if(!LOCAL_DECK.length){LOCAL_DECK=[...DATA.keys()].filter(i=>!h.has("local:"+i)&&!SESSION_USED.has("local:"+i));
     if(!LOCAL_DECK.length)LOCAL_DECK=[...DATA.keys()];LOCAL_DECK.sort(()=>Math.random()-.5)}
   const i=LOCAL_DECK.pop();SESSION_USED.add("local:"+i);
-  const c=CATS[i];return{name:c.name,hint:DATA[i].d||"",map:c.map,list:c.list,key:"local:"+i,src:"local"};
+  const c=CATS[i];return{name:c.name,hint:DATA[i].d||"",map:c.map,list:c.list,key:"local:"+i,src:"local",topic:DATA[i].c||"Cultura general"};
 }
 function nextCategory(){
-  const c=PREP.length?PREP.shift():localCategory();
+  const c=(PREP.length&&Math.random()<.3)?PREP.shift():localCategory();
   histAdd(c.key);prepCategory();return c;
 }
 
@@ -559,7 +831,7 @@ function myId(){return MODE==="local"?(G&&G.players[G.cur]?G.players[G.cur].id:n
 function aliveList(){return G.players.filter(p=>p.lives>0)}
 function nextIdx(i){if(G.players.length===1)return 0;let j=i,n=0;do{j=(j+1)%G.players.length;n++}while(G.players[j].lives<=0&&n<=G.players.length);return j}
 function startRound(){
-  CUR=nextCategory();G.catName=CUR.name;G.catHint=CUR.hint;G.round++;G.used=[];G.elapsed=0;G.fb=null;G.phase="play";G.over=false;G.winner=null;
+  CUR=nextCategory();G.catName=CUR.name;G.catHint=CUR.hint;G.catTopic=CUR.topic||"";G.round++;G.used=[];G.elapsed=0;G.fb=null;G.phase="play";G.over=false;G.winner=null;
   FUSE=MINF+Math.random()*(MAXF-MINF);
   if(G.players[G.cur].lives<=0)G.cur=nextIdx(G.cur);
   simLast=performance.now();bcast(true);renderAll();
@@ -682,7 +954,7 @@ $("joinBtn").onclick=()=>{const code=$("codeIn").value.replace(/\D/g,"");
 $("codeIn").addEventListener("keydown",e=>{if(e.key==="Enter")$("joinBtn").click()});
 async function beginRound(btn){
   if(btn){btn.disabled=true;var old=btn.textContent;btn.textContent="Preparando…"}
-  const t0=Date.now();while(!PREP.length&&WD_OK&&PREPPING>0&&Date.now()-t0<7000)await new Promise(r=>setTimeout(r,200));
+  const t0=Date.now();while(!PREP.length&&(WD_OK||WP_OK)&&PREPPING>0&&Date.now()-t0<8000)await new Promise(r=>setTimeout(r,200));
   if(btn){btn.disabled=false;btn.textContent=old}
   startRound();
 }
@@ -710,7 +982,7 @@ function renderAll(){
   const me=myPeer();
   if(G.phase==="lobby"){showOnly("lobby");renderLobby();lastPhase="lobby";return}
   // datos comunes
-  $("roundLbl").textContent=`Ronda ${G.round}`;$("catName").textContent=G.catName||"";$("catHint").textContent=G.catHint||"";
+  $("roundLbl").textContent=`Ronda ${G.round}`+(G.catTopic?` · ${G.catTopic}`:"");$("catName").textContent=G.catName||"";$("catHint").textContent=G.catHint||"";
   $("livesBox").innerHTML=G.players.map((p,i)=>`<span class="chip ${i===G.cur&&G.phase==="play"?"on":""} ${p.lives<=0?"out":""}">${esc(p.name)}${MODE!=="local"&&p.id===me?" (tú)":""} <span class="hearts">${"♥".repeat(Math.max(p.lives,0))}</span> · ${p.pts}</span>`).join("");
   const holder=G.players[G.cur];
   const mine=MODE!=="local"&&holder&&holder.id===me;
