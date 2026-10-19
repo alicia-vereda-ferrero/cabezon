@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="description" content="Cabezón: di respuestas raras antes de que la cabeza reviente. Juego online con amigos.">
 <title>Cabezón</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -125,8 +125,43 @@ td:last-child,th:last-child{text-align:right}
 @keyframes rise{from{transform:translateY(0) scale(.6);opacity:.9}to{transform:translateY(-34px) scale(1.5);opacity:0}}
 .shard{transition:transform 1.1s cubic-bezier(.12,.7,.3,1),opacity 1.1s ease-in}
 @media (prefers-reduced-motion:reduce){.shake,.flash,.flame,.steam circle{animation:none}.shard{transition:none}}
+
+/* Pantalla fija: todo cabe en el alto de la ventana, sin scroll */
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+.wrap{height:100%;height:100dvh;display:flex;flex-direction:column;gap:10px;padding-block:max(10px,env(safe-area-inset-top,0px)) max(10px,env(safe-area-inset-bottom,0px))}
+header{flex:none}
+h1{font-size:clamp(2.4rem,min(14vw,10vh),6rem)}
+.sticker{font-size:clamp(1.2rem,4vh,2rem)}
+.sub{flex:none;margin:0;font-size:.95rem}
+body:not([data-screen="setup"]) .sub{display:none}
+body:not([data-screen="setup"]) h1{font-size:clamp(2rem,min(10vw,7vh),4rem)}
+body:not([data-screen="setup"]) .sticker{display:none}
+.panel{flex:0 1 auto;min-height:0;margin:0;overflow:auto;display:flex;flex-direction:column;padding:24px 18px 16px}
+.panel>*{flex:none}
+.howto{margin-top:14px;border-top:1px solid rgba(26,20,20,.2);padding-top:10px}
+.howto summary{cursor:pointer;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--dim)}
+.howto .rules{font-size:.92rem}
+#game{overflow:hidden;flex:1 1 auto}
+#game .headbox{flex:1 1 auto;min-height:90px;max-width:none;width:100%;margin:6px auto 0;display:flex;justify-content:center;align-items:center}
+#game .headbox svg{height:100%;width:auto;max-width:100%}
+#game .headbox::before{inset:0 15%}
+#game .headbox::after{width:auto;height:70%;aspect-ratio:1}
+#game .timebar{margin-top:4px}
+#game .holder{margin:8px 0}
+#game .holder b{font-size:clamp(1.5rem,5vh,2.4rem)}
+#game .feedback{min-height:1.4em;margin-top:6px;font-size:.95rem}
+#game .said{flex:none;max-height:2.1em;overflow:hidden;margin-top:6px}
+#game .cathint{font-size:.88rem;margin-top:4px}
+#game .quitrow{margin-top:8px}
+.boom h2{font-size:clamp(2.4rem,min(12vw,9vh),5rem)}
+.gem{margin:10px auto}
+#game .timebar,#game .timelbl{width:100%}
+#setup .grid2{gap:18px;margin-top:16px!important}
+@media (max-height:860px){.sub{display:none}}
+@media (max-height:780px){#setup h3{font-size:1.6rem}#setup .col>.note{display:none}#setup .col{gap:8px}}
+@media (max-height:620px){#game .cathint{display:none}#game .lives{gap:4px}#game .chip{font-size:.8rem;padding:2px 8px}}
 </style>
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
 
@@ -162,12 +197,9 @@ td:last-child,th:last-child{text-align:right}
         <div><button class="primary" id="joinBtn" type="button" disabled>Unirme</button></div>
       </div>
     </div>
-    <p class="note" id="roomNote" style="margin-top:18px">Conectando…</p>
-  </section>
-
-  <section class="panel" id="rulesPanel">
-    <div class="label">Cómo se juega</div>
-    <ol class="rules">
+    <p class="note" id="roomNote" style="margin-top:14px">Conectando…</p>
+    <details class="howto"><summary>Cómo se juega</summary>
+      <ol class="rules">
       <li>Sale una categoría. Escribe una respuesta válida y la cabeza pasa al siguiente.</li>
       <li>La cabeza aguanta entre 28 y 48 s. Nadie sabe cuándo revienta: pasada la raya de la barra estás en <b>zona de peligro</b>.</li>
       <li><span class="tier t1">Común</span> 1 punto y la enfría 1 s.</li>
@@ -175,7 +207,10 @@ td:last-child,th:last-child{text-align:right}
       <li><span class="tier t3">Rara</span> 3 puntos y la calienta 4 s.</li>
       <li>Repetir o fallar no pasa la cabeza. Al final de cada ronda se revela <b>la joya</b>: una respuesta rara que nadie dijo.</li>
     </ol>
+    </details>
   </section>
+
+
 
   <!-- SALA -->
   <section id="lobby" class="panel" hidden>
@@ -252,7 +287,7 @@ td:last-child,th:last-child{text-align:right}
     </form>
     <div class="feedback" id="feedback" aria-live="polite"></div>
     <div class="said" id="saidBox"></div>
-    <div class="row" style="margin-top:16px"><button class="small quit" type="button">Salir</button></div>
+    <div class="row quitrow"><button class="small quit" type="button">Salir</button></div>
   </section>
 
   <!-- FIN DE RONDA -->
@@ -363,6 +398,145 @@ const CATS=DATA.map(buildCat);
 function lookup(cat,raw){const k=norm(raw);if(!k)return null;if(cat.map.has(k))return cat.map.get(k);
   if(k.length>=5){for(const [key,it] of cat.map){if(key.length>=5&&lev(k,key)<=1)return it}}return null}
 
+/* ---------- Biblioteca casi infinita: categorías generadas desde Wikidata ----------
+   Cada categoría = plantilla + semilla (p. ej. "Una película dirigida por" + "Pedro Almodóvar").
+   Las respuestas válidas salen de Wikidata con su nombre en español (y en inglés como alternativa).
+   La rareza sale de cuántas Wikipedias tienen artículo de esa respuesta: más artículos = más conocida = más común.
+   Si Wikidata no responde, se usan las categorías de siempre. */
+const WD_SEARCH="https://www.wikidata.org/w/api.php";
+const WD_SPARQL="https://query.wikidata.org/sparql";
+const MIN_ANSWERS=15;
+const TEMPLATES=[
+ {k:"dir",name:s=>`Una película dirigida por ${s}`,hint:"Vale el título en español o en el original.",
+  body:"?item wdt:P57 wd:SEED .",
+  seeds:["Pedro Almodóvar","Steven Spielberg","Quentin Tarantino","Alfred Hitchcock","Christopher Nolan","Martin Scorsese","Stanley Kubrick","Woody Allen","Hayao Miyazaki","Tim Burton","Clint Eastwood","Ridley Scott","Luis Buñuel","Alejandro Amenábar","Guillermo del Toro","Francis Ford Coppola","James Cameron","Akira Kurosawa","Federico Fellini","Ingmar Bergman","Billy Wilder","Charles Chaplin","Wes Anderson","David Fincher","Álex de la Iglesia","Fernando Trueba","Carlos Saura","Luis García Berlanga","Isabel Coixet","Denis Villeneuve","Peter Jackson","Spike Lee","Ron Howard","Robert Zemeckis","Sergio Leone","Roman Polanski","David Lynch","Santiago Segura","Icíar Bollaín"]},
+ {k:"act",name:s=>`Una película en la que sale ${s}`,hint:"Vale el título en español o en el original.",
+  body:"?item wdt:P161 wd:SEED ; wdt:P31 wd:Q11424 .",
+  seeds:["Penélope Cruz","Antonio Banderas","Javier Bardem","Leonardo DiCaprio","Tom Hanks","Meryl Streep","Brad Pitt","Johnny Depp","Robert De Niro","Scarlett Johansson","Al Pacino","Tom Cruise","Will Smith","Morgan Freeman","Nicole Kidman","Julia Roberts","Denzel Washington","Keanu Reeves","Harrison Ford","Samuel L. Jackson","Natalie Portman","Cate Blanchett","Ricardo Darín","Luis Tosar","Carmen Maura","Jack Nicholson","Anthony Hopkins","Jim Carrey","Adam Sandler","Cameron Diaz","Angelina Jolie","Matt Damon","Arnold Schwarzenegger","Sylvester Stallone","Bruce Willis","Eddie Murphy","Robin Williams","Kate Winslet","Emma Stone","Ryan Gosling","Javier Cámara","José Coronado","Alfredo Landa","Antonio Resines","Paco León","Maribel Verdú"]},
+ {k:"song",name:s=>`Una canción de ${s}`,hint:"Vale el título tal cual se conoce la canción.",
+  body:"?item wdt:P175 wd:SEED ; wdt:P31 ?t . VALUES ?t { wd:Q7366 wd:Q134556 wd:Q105543609 }",
+  seeds:["The Beatles","Queen","Michael Jackson","Madonna","Shakira","Bad Bunny","Rosalía","ABBA","Taylor Swift","The Rolling Stones","Elvis Presley","Beyoncé","Rihanna","Lady Gaga","Eminem","Coldplay","U2","Bob Dylan","David Bowie","Prince","Nirvana","Metallica","Daddy Yankee","J Balvin","Enrique Iglesias","Julio Iglesias","Alejandro Sanz","Mecano","Héroes del Silencio","Estopa","Maná","Britney Spears","Kanye West","Drake","Ed Sheeran","Adele","Bruno Mars","Dua Lipa","Karol G","Raphael","Juan Luis Guerra","Ricky Martin","Pink Floyd","Led Zeppelin","AC/DC","Oasis","Radiohead","Arctic Monkeys"]},
+ {k:"album",name:s=>`Un disco de ${s}`,hint:"Álbumes de estudio, en directo o recopilatorios.",
+  body:"?item wdt:P175 wd:SEED ; wdt:P31 ?t . VALUES ?t { wd:Q482994 wd:Q208569 wd:Q209939 wd:Q222910 }",
+  seeds:["The Beatles","Queen","Michael Jackson","Madonna","Shakira","ABBA","The Rolling Stones","Elvis Presley","Bob Dylan","David Bowie","Prince","Metallica","Pink Floyd","Led Zeppelin","Julio Iglesias","Raphael","Joaquín Sabina","Joan Manuel Serrat","Camarón de la Isla","Paco de Lucía","Isabel Pantoja","Rocío Jurado","Miguel Ríos","Los Planetas","Extremoduro","Fito & Fitipaldis","Sôber","Kiss","Iron Maiden","Frank Sinatra","Miles Davis","Frank Zappa","Neil Young","Bruce Springsteen","Elton John"]},
+ {k:"club",name:s=>`Un futbolista que haya jugado en ${s}`,hint:"Cualquier época. Vale el apellido o el nombre con el que se le conoce.",person:true,
+  body:"?item wdt:P54 wd:SEED ; wdt:P106 wd:Q937857 .",
+  seeds:["Real Madrid|el Real Madrid","FC Barcelona|el Barça","Atlético de Madrid|el Atlético de Madrid","Sevilla FC|el Sevilla","Real Betis|el Betis","Granada CF|el Granada","Valencia CF|el Valencia","Athletic Club|el Athletic Club","Real Sociedad|la Real Sociedad","Villarreal CF|el Villarreal","Celta de Vigo|el Celta","Deportivo de La Coruña|el Deportivo de La Coruña","Málaga CF|el Málaga","Real Zaragoza|el Real Zaragoza","RCD Espanyol|el Espanyol","Real Valladolid|el Valladolid","CA Osasuna|Osasuna","Getafe CF|el Getafe","Rayo Vallecano|el Rayo Vallecano","UD Las Palmas|Las Palmas","Cádiz CF|el Cádiz","UD Almería|el Almería","Manchester United|el Manchester United","Liverpool FC|el Liverpool","Chelsea FC|el Chelsea","Arsenal FC|el Arsenal","Manchester City|el Manchester City","Juventus|la Juventus","AC Milan|el Milan","Inter de Milán|el Inter","Bayern de Múnich|el Bayern","Borussia Dortmund|el Borussia Dortmund","Paris Saint-Germain|el PSG","AFC Ajax|el Ajax","SL Benfica|el Benfica","FC Porto|el Oporto","Boca Juniors|Boca Juniors","River Plate|River Plate"]},
+ {k:"natl",name:s=>`Un futbolista que haya jugado con la selección de ${s}`,hint:"Cualquier época. Vale el apellido.",person:true,
+  body:"?item wdt:P54 wd:SEED ; wdt:P106 wd:Q937857 .",
+  seeds:["selección de fútbol de España|España","selección de fútbol de Argentina|Argentina","selección de fútbol de Brasil|Brasil","selección de fútbol de Francia|Francia","selección de fútbol de Alemania|Alemania","selección de fútbol de Italia|Italia","selección de fútbol de Inglaterra|Inglaterra","selección de fútbol de Portugal|Portugal","selección de fútbol de México|México","selección de fútbol de Uruguay|Uruguay","selección de fútbol de los Países Bajos|Países Bajos","selección de fútbol de Colombia|Colombia","selección de fútbol de Marruecos|Marruecos"]},
+ {k:"book",name:s=>`Un libro u obra de ${s}`,hint:"Novelas, poemarios, obras de teatro, ensayos…",
+  body:"?item wdt:P50 wd:SEED .",
+  seeds:["Miguel de Cervantes","Gabriel García Márquez","Isabel Allende","Mario Vargas Llosa","Jorge Luis Borges","Julio Cortázar","Arturo Pérez-Reverte","Federico García Lorca","Benito Pérez Galdós","Stephen King","Agatha Christie","J. K. Rowling","J. R. R. Tolkien","William Shakespeare","Charles Dickens","Julio Verne","Isaac Asimov","Terry Pratchett","Haruki Murakami","Paulo Coelho","Pablo Neruda","Lope de Vega","Pío Baroja","Miguel de Unamuno","Camilo José Cela","Almudena Grandes","Javier Marías","Roald Dahl","Mark Twain","Edgar Allan Poe","Fiódor Dostoyevski","León Tolstói","Victor Hugo","Alejandro Dumas","H. P. Lovecraft","George R. R. Martin","Philip K. Dick","Arthur Conan Doyle","Antonio Machado","Gustavo Adolfo Bécquer","Calderón de la Barca"]},
+ {k:"paint",name:s=>`Un cuadro de ${s}`,hint:"Vale el título por el que se conoce el cuadro.",
+  body:"?item wdt:P170 wd:SEED ; wdt:P31 wd:Q3305213 .",
+  seeds:["Diego Velázquez|Velázquez","Francisco de Goya|Goya","Pablo Picasso|Picasso","Salvador Dalí|Dalí","Vincent van Gogh|Van Gogh","Claude Monet|Monet","Rembrandt","El Greco","Joaquín Sorolla|Sorolla","Frida Kahlo","Bartolomé Esteban Murillo|Murillo","Johannes Vermeer|Vermeer","Gustav Klimt|Klimt","Sandro Botticelli|Botticelli","Pedro Pablo Rubens|Rubens","Caravaggio","René Magritte|Magritte","Joan Miró|Miró","Leonardo da Vinci","Rafael Sanzio|Rafael","Tiziano","Edvard Munch|Munch","Paul Cézanne|Cézanne","Pierre-Auguste Renoir|Renoir","Edgar Degas|Degas","El Bosco","Francisco de Zurbarán|Zurbarán","Julio Romero de Torres|Romero de Torres","Edward Hopper|Hopper","Paul Gauguin|Gauguin"]},
+ {k:"muni",name:s=>`Un pueblo o ciudad de ${s}`,hint:"Cualquier municipio. Los pueblos pequeños valen oro.",
+  body:"?item wdt:P31 wd:Q2074737 ; wdt:P131+ wd:SEED .",
+  seeds:["provincia de Granada|la provincia de Granada","provincia de Sevilla|la provincia de Sevilla","provincia de Málaga|la provincia de Málaga","provincia de Córdoba|la provincia de Córdoba","provincia de Cádiz|la provincia de Cádiz","provincia de Jaén|la provincia de Jaén","provincia de Almería|la provincia de Almería","provincia de Huelva|la provincia de Huelva","provincia de Madrid|la Comunidad de Madrid","provincia de Barcelona|la provincia de Barcelona","provincia de Valencia|la provincia de Valencia","provincia de Alicante|la provincia de Alicante","provincia de Castellón|la provincia de Castellón","Región de Murcia|la Región de Murcia","provincia de Zaragoza|la provincia de Zaragoza","provincia de Huesca|la provincia de Huesca","provincia de Teruel|la provincia de Teruel","Asturias","Cantabria","Navarra","La Rioja (España)|La Rioja","Vizcaya","Guipúzcoa","provincia de Álava|Álava","provincia de La Coruña|la provincia de A Coruña","provincia de Pontevedra|la provincia de Pontevedra","provincia de Lugo|la provincia de Lugo","provincia de Orense|la provincia de Ourense","provincia de León|la provincia de León","provincia de Salamanca|la provincia de Salamanca","provincia de Burgos|la provincia de Burgos","provincia de Valladolid|la provincia de Valladolid","provincia de Toledo|la provincia de Toledo","provincia de Ciudad Real|la provincia de Ciudad Real","provincia de Cáceres|la provincia de Cáceres","provincia de Badajoz|la provincia de Badajoz","Islas Baleares|las Islas Baleares","provincia de Las Palmas|la provincia de Las Palmas","provincia de Santa Cruz de Tenerife|la provincia de Santa Cruz de Tenerife","provincia de Gerona|la provincia de Girona","provincia de Tarragona|la provincia de Tarragona","provincia de Lérida|la provincia de Lleida"]},
+ {k:"born",name:s=>`Una persona conocida nacida en ${s}`,hint:"Cualquiera con artículo en Wikipedia. Vale el apellido.",person:true,
+  body:"?item wdt:P19 wd:SEED ; wdt:P31 wd:Q5 .",
+  seeds:["Granada","Sevilla","Madrid","Barcelona","Málaga","Córdoba (España)|Córdoba","Cádiz","Valencia","Bilbao","Zaragoza","Jerez de la Frontera|Jerez","Almería","Jaén","Huelva","Murcia","Alicante","Valladolid","Salamanca","Oviedo","Santander","Pamplona","San Sebastián","A Coruña","Vigo","Palma de Mallorca|Palma","Las Palmas de Gran Canaria|Las Palmas","Buenos Aires","Ciudad de México","Lima","Bogotá","Santiago de Chile","Montevideo","La Habana","París","Londres","Nueva York","Roma","Lisboa","Los Ángeles","Liverpool","Nápoles","Marsella"]},
+ {k:"award",name:s=>`Alguien o algo que haya ganado ${s}`,hint:"Personas, películas o libros premiados. Vale el apellido.",person:true,
+  body:"?item wdt:P166 wd:SEED .",
+  seeds:["Premio Nobel de Literatura|el Nobel de Literatura","Premio Nobel de la Paz|el Nobel de la Paz","Premio Nobel de Física|el Nobel de Física","Premio Nobel de Química|el Nobel de Química","Premio Nobel de Medicina|el Nobel de Medicina","Premio Miguel de Cervantes|el Premio Cervantes","Balón de Oro|el Balón de Oro","Óscar a la mejor película|el Óscar a mejor película","Óscar a la mejor actriz|el Óscar a mejor actriz","Óscar al mejor actor|el Óscar a mejor actor","Óscar al mejor director|el Óscar a mejor dirección","Premio Goya a la mejor película|el Goya a mejor película","Premio Goya a la mejor actriz protagonista|el Goya a mejor actriz","Premio Goya al mejor actor protagonista|el Goya a mejor actor","Premio Princesa de Asturias de los Deportes|el Princesa de Asturias de los Deportes","Premio Princesa de Asturias de las Artes|el Princesa de Asturias de las Artes","Premio Planeta de Novela|el Premio Planeta","Palma de Oro|la Palma de Oro de Cannes","León de Oro|el León de Oro de Venecia"]},
+ {k:"game",name:s=>`Un videojuego de ${s}`,hint:"Desarrollado o publicado por esa compañía.",
+  body:"{ ?item wdt:P178 wd:SEED } UNION { ?item wdt:P123 wd:SEED } ?item wdt:P31 wd:Q7889 .",
+  seeds:["Nintendo","Sega","Capcom","Konami","Ubisoft","Electronic Arts","Square Enix","Rockstar Games","Bandai Namco Entertainment|Bandai Namco","Activision","Blizzard Entertainment|Blizzard","Sony Interactive Entertainment|PlayStation (Sony)","Valve Corporation|Valve","Bethesda Softworks|Bethesda","FromSoftware","Atari","Namco","Taito","SNK","Codemasters","Dinamic Software|Dinamic (la de los 80)","Pyro Studios"]},
+ {k:"char",name:s=>`Un personaje de ${s}`,hint:"Vale el nombre por el que se le conoce.",
+  body:"?item wdt:P1441 wd:SEED .",
+  seeds:["Los Simpson","Harry Potter","Star Wars","El Señor de los Anillos","Canción de hielo y fuego|Juego de Tronos","Dragon Ball","One Piece","Naruto","Friends","La casa de papel","Breaking Bad","Futurama","South Park","Padre de familia","Mortadelo y Filemón","Astérix","Tintín","Don Quijote de la Mancha|el Quijote","Cien años de soledad","La Biblia","Doctor Who","Star Trek","Pokémon","The Legend of Zelda|Zelda","Super Mario","Sonic the Hedgehog|Sonic","Stranger Things","Los Soprano","The Office","Aquí no hay quien viva","Cuéntame cómo pasó","Verano azul"]},
+ {k:"river",name:s=>`Un río de ${s}`,hint:"Ríos, no afluentes de arroyo. Los pequeños puntúan más.",
+  body:"?item wdt:P31 wd:Q4022 ; wdt:P17 wd:SEED .",
+  seeds:["España","Francia","Italia","Alemania","Portugal","Reino Unido","Estados Unidos","México","Argentina","Chile","Colombia","Perú","Brasil","Japón","China","India","Rusia","Canadá","Australia","Marruecos","Grecia","Turquía","Noruega","Suiza","Austria"]},
+ {k:"mount",name:s=>`Una montaña de ${s}`,hint:"Picos, montes y cerros con nombre.",
+  body:"?item wdt:P31 wd:Q8502 ; wdt:P17 wd:SEED .",
+  seeds:["España","Francia","Italia","Suiza","Austria","Andorra","Argentina","Chile","Perú","México","Estados Unidos","Japón","Nepal","Noruega","Grecia","Marruecos","Colombia","Canadá"]},
+ {k:"tv",name:s=>`Una serie de televisión de ${s}`,hint:"Series de ficción, de cualquier época.",
+  body:"?item wdt:P31 wd:Q5398426 ; wdt:P495 wd:SEED .",
+  seeds:["España","Argentina","México","Colombia","Estados Unidos","Reino Unido","Japón","Corea del Sur","Francia","Italia","Alemania","Chile","Turquía","Suecia","Dinamarca"]},
+];
+const wdTimeout=ms=>{const c=new AbortController();setTimeout(()=>c.abort(),ms);return c.signal};
+const seedParts=s=>{const [q,n]=s.split("|");return{q,n:n||q}};
+async function wdSearch(term){
+  const u=WD_SEARCH+"?action=wbsearchentities&format=json&origin=*&language=es&uselang=es&type=item&limit=1&search="+encodeURIComponent(term);
+  const r=await fetch(u,{signal:wdTimeout(10000)});if(!r.ok)throw new Error("search "+r.status);
+  const j=await r.json();return j.search&&j.search[0]?j.search[0].id:null;
+}
+async function wdQuery(body,qid){
+  const q=`SELECT ?item ?sl ?les ?len (GROUP_CONCAT(DISTINCT ?a; separator="|") AS ?alts) WHERE {
+ ${body.replace(/SEED/g,qid)}
+ ?item wikibase:sitelinks ?sl .
+ OPTIONAL { ?item rdfs:label ?les . FILTER(LANG(?les)="es") }
+ OPTIONAL { ?item rdfs:label ?len . FILTER(LANG(?len)="en") }
+ OPTIONAL { ?item skos:altLabel ?a . FILTER(LANG(?a)="es" || LANG(?a)="en") }
+} GROUP BY ?item ?sl ?les ?len ORDER BY DESC(?sl) LIMIT 1500`;
+  const r=await fetch(WD_SPARQL+"?format=json&query="+encodeURIComponent(q),{signal:wdTimeout(25000)});
+  if(!r.ok)throw new Error("sparql "+r.status);
+  return (await r.json()).results.bindings;
+}
+const cleanLabel=s=>String(s||"").replace(/\s*\([^)]*\)\s*$/,"").trim();
+function buildWdCat(t,seed,rows){
+  const entries=[],seen=new Set();
+  for(const b of rows){
+    const id=b.item&&b.item.value;if(!id||seen.has(id))continue;seen.add(id);
+    const es=cleanLabel(b.les&&b.les.value),en=cleanLabel(b.len&&b.len.value);
+    const canon=es||en;if(!canon||canon.length>60||/^Q\d+$/.test(canon))continue;
+    const alias=new Set([es,en]);
+    if(b.alts&&b.alts.value)b.alts.value.split("|").slice(0,8).forEach(a=>alias.add(cleanLabel(a)));
+    if(t.person&&/\s/.test(canon)){const w=canon.split(/\s+/);const last=w[w.length-1];if(last.length>=4)alias.add(last);if(w.length>=3)alias.add(w.slice(-2).join(" "))}
+    entries.push({canon,alias:[...alias].filter(a=>a&&a.length>=2),sl:+(b.sl&&b.sl.value)||0});
+  }
+  if(entries.length<MIN_ANSWERS)return null;
+  entries.sort((a,b)=>b.sl-a.sl);
+  const n=entries.length,c1=Math.max(3,Math.round(n*.2)),c2=c1+Math.round(n*.35);
+  const map=new Map(),list=[];
+  entries.forEach((e,i)=>{const it={canon:e.canon,tier:i<c1?1:i<c2?2:3,sl:e.sl};list.push(it);
+    for(const a of e.alias){const k=norm(a);if(k&&!map.has(k))map.set(k,it)}});
+  return{name:t.name(seed.n),hint:`${t.hint} Hay ${n} respuestas válidas.`,map,list,src:"wd"};
+}
+/* historial para no repetir categorías entre partidas */
+const HKEY="cabezon-historial";
+function histGet(){try{return new Set(JSON.parse(localStorage.getItem(HKEY)||"[]"))}catch(e){return new Set()}}
+function histAdd(k){try{const h=[...histGet()];h.push(k);localStorage.setItem(HKEY,JSON.stringify(h.slice(-3000)))}catch(e){}}
+const SESSION_USED=new Set();
+function pickCombo(){
+  const h=histGet();const all=[];
+  TEMPLATES.forEach(t=>t.seeds.forEach(s=>{const k=t.k+":"+s;if(!h.has(k)&&!SESSION_USED.has(k))all.push([t,s,k])}));
+  if(!all.length){TEMPLATES.forEach(t=>t.seeds.forEach(s=>{const k=t.k+":"+s;if(!SESSION_USED.has(k))all.push([t,s,k])}))}
+  return all.length?all[Math.floor(Math.random()*all.length)]:null;
+}
+let WD_OK=true,PREP=[],PREPPING=0;
+async function prepCategory(){
+  if(!WD_OK||PREPPING>=2||PREP.length>=2)return;PREPPING++;
+  try{
+    for(let tries=0;tries<5&&PREP.length<2;tries++){
+      const c=pickCombo();if(!c)break;const [t,s,k]=c;SESSION_USED.add(k);const seed=seedParts(s);
+      try{
+        const qid=await wdSearch(seed.q);if(!qid)continue;
+        const rows=await wdQuery(t.body,qid);const cat=buildWdCat(t,seed,rows);
+        if(cat){cat.key=k;PREP.push(cat)}
+      }catch(e){if(e&&(e.name==="TypeError"||e.name==="AbortError"))tries++;}
+    }
+  }catch(e){}
+  PREPPING--;if(PREP.length)WD_FAILS=0;
+  if(!PREP.length&&PREPPING===0){/* si Wikidata no responde nunca, dejamos de insistir */ WD_FAILS=(WD_FAILS||0)+1;if(WD_FAILS>=3)WD_OK=false}
+}
+let WD_FAILS=0;
+/* categorías de siempre, como respaldo */
+let LOCAL_DECK=[];
+function localCategory(){
+  const h=histGet();
+  if(!LOCAL_DECK.length){LOCAL_DECK=[...DATA.keys()].filter(i=>!h.has("local:"+i)&&!SESSION_USED.has("local:"+i));
+    if(!LOCAL_DECK.length)LOCAL_DECK=[...DATA.keys()];LOCAL_DECK.sort(()=>Math.random()-.5)}
+  const i=LOCAL_DECK.pop();SESSION_USED.add("local:"+i);
+  const c=CATS[i];return{name:c.name,hint:DATA[i].d||"",map:c.map,list:c.list,key:"local:"+i,src:"local"};
+}
+function nextCategory(){
+  const c=PREP.length?PREP.shift():localCategory();
+  histAdd(c.key);prepCategory();return c;
+}
+
 /* ---------- sonido ---------- */
 let AC=null;
 function audioOn(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
@@ -374,7 +548,7 @@ function boomSound(){if(!AC)return;const len=AC.sampleRate*.9,b=AC.createBuffer(
 /* ---------- estado ----------
    MODE: "local" (mismo dispositivo), "host" (lleva la partida online), "client" (se une a una sala).
    G es el estado público; en online el anfitrión lo comparte por presencia y los demás lo dibujan. */
-let MODE=null, G=null, FUSE=0, DECK=[], LIVES=3;
+let MODE=null, G=null, FUSE=0, DECK=[], LIVES=3, CUR=null;
 let ROOM=null, NR=null, myName="", mySeq=0, lastSeen={}, lastB=0, recvAt=0, hostSeen=false;
 let lastPhase=null, lastFbN=-1, boomTimer=null, simLast=0;
 
@@ -385,8 +559,7 @@ function myId(){return MODE==="local"?(G&&G.players[G.cur]?G.players[G.cur].id:n
 function aliveList(){return G.players.filter(p=>p.lives>0)}
 function nextIdx(i){if(G.players.length===1)return 0;let j=i,n=0;do{j=(j+1)%G.players.length;n++}while(G.players[j].lives<=0&&n<=G.players.length);return j}
 function startRound(){
-  if(!DECK.length)DECK=[...DATA.keys()].sort(()=>Math.random()-.5);
-  G.catIdx=DECK.pop();G.round++;G.used=[];G.elapsed=0;G.fb=null;G.phase="play";G.over=false;G.winner=null;
+  CUR=nextCategory();G.catName=CUR.name;G.catHint=CUR.hint;G.round++;G.used=[];G.elapsed=0;G.fb=null;G.phase="play";G.over=false;G.winner=null;
   FUSE=MINF+Math.random()*(MAXF-MINF);
   if(G.players[G.cur].lives<=0)G.cur=nextIdx(G.cur);
   simLast=performance.now();bcast(true);renderAll();
@@ -394,7 +567,7 @@ function startRound(){
 function fbPush(msg,kind,who){G.fbN=(G.fbN||0)+1;G.fb={n:G.fbN,msg,kind,who}}
 function submit(raw,fromId){
   if(!G||G.phase!=="play")return;const p=G.players[G.cur];if(!p||p.id!==fromId)return;
-  raw=String(raw).slice(0,40);const cat=CATS[G.catIdx];const it=lookup(cat,raw);
+  raw=String(raw).slice(0,40);const cat=CUR;const it=lookup(cat,raw);
   if(!it)fbPush(`«${raw}» no vale aquí`,"bad",fromId);
   else if(G.used.some(u=>u[0]===it.canon))fbPush(`${it.canon} ya se dijo`,"bad",fromId);
   else{const T=TIER[it.tier];G.used.push([it.canon,it.tier]);p.pts+=T.pts;G.elapsed=Math.max(0,G.elapsed+T.burn);
@@ -404,8 +577,9 @@ function submit(raw,fromId){
 }
 function boom(){
   const v=G.players[G.cur];v.lives--;G.victim=v.name;
-  const cat=CATS[G.catIdx];const rares=cat.list.filter(x=>x.tier===3&&!G.used.some(u=>u[0]===x.canon));
-  G.gem=rares.length?rares[Math.floor(Math.random()*rares.length)].canon:"¡Las dijisteis todas!";
+  const cat=CUR;const rares=cat.list.filter(x=>x.tier===3&&!G.used.some(u=>u[0]===x.canon));
+  const pool=rares.slice(0,Math.max(5,Math.ceil(rares.length/3)));
+  G.gem=pool.length?pool[Math.floor(Math.random()*pool.length)].canon:"¡Las dijisteis todas!";
   const solo=G.players.length===1,alv=aliveList();
   G.over=solo?v.lives<=0:alv.length<=1;G.winner=(!solo&&G.over&&alv[0])?alv[0].name:null;
   G.phase="boom";bcast(true);renderAll();
@@ -490,7 +664,7 @@ async function enterRoom(code,asHost){
   audioOn();myName=($("myName").value.trim()||"Jugador").slice(0,16);
   $("createBtn").disabled=$("joinBtn").disabled=true;setNote(asHost?"Creando la sala…":"Buscando la partida…");
   MODE=asHost?"host":"client";lastSeen={};mySeq=0;
-  if(asHost){LIVES=+$("livesOn").value;G={phase:"lobby",round:0,players:[],cur:0,used:[],elapsed:0,catIdx:0,fbN:0};DECK=[]}else G=null;
+  if(asHost){LIVES=+$("livesOn").value;G={phase:"lobby",round:0,players:[],cur:0,used:[],elapsed:0,fbN:0};prepCategory()}else G=null;
   try{NET=ROOM?await roomTransport(code,asHost):await peerTransport(code,asHost)}
   catch(e){MODE=null;G=null;NET=null;
     if(e.message==="taken"&&asHost)return enterRoom(newCode(),true);
@@ -499,20 +673,27 @@ async function enterRoom(code,asHost){
 }
 
 /* ---------- interfaz ---------- */
-function showOnly(id){["setup","lobby","game","roundEnd"].forEach(s=>$(s).hidden=s!==id);$("rulesPanel").hidden=!(id==="setup"||id==="lobby")}
+function showOnly(id){["setup","lobby","game","roundEnd"].forEach(s=>$(s).hidden=s!==id);document.body.dataset.screen=id}
+document.body.dataset.screen="setup";
 $("createBtn").onclick=()=>enterRoom(newCode(),true);
 $("joinBtn").onclick=()=>{const code=$("codeIn").value.replace(/\D/g,"");
   if(!/^\d{4}$/.test(code)){setNote("El código son 4 números, por ejemplo 4821.",true);return}
   enterRoom(code,false)};
 $("codeIn").addEventListener("keydown",e=>{if(e.key==="Enter")$("joinBtn").click()});
-$("goBtn").onclick=()=>{if(MODE==="host"&&G.players.length)startRound()};
+async function beginRound(btn){
+  if(btn){btn.disabled=true;var old=btn.textContent;btn.textContent="Preparando…"}
+  const t0=Date.now();while(!PREP.length&&WD_OK&&PREPPING>0&&Date.now()-t0<7000)await new Promise(r=>setTimeout(r,200));
+  if(btn){btn.disabled=false;btn.textContent=old}
+  startRound();
+}
+$("goBtn").onclick=()=>{if(MODE==="host"&&G.players.length)beginRound($("goBtn"))};
 function quit(){if(NET)NET.leave();NET=null;MODE=null;G=null;lastPhase=null;showOnly("setup");setRoomButtons()}
 $("leaveBtn").onclick=quit;document.querySelectorAll(".quit").forEach(b=>b.onclick=()=>{clearTimeout(boomTimer);quit()});
 $("nextBtn").onclick=()=>{
   if(!G)return;
   if(G.over){if(MODE==="local"){MODE=null;G=null;lastPhase=null;showOnly("setup");return}
     G.players=G.players.filter(p=>!p.gone);G.players.forEach(p=>{p.lives=LIVES;p.pts=0});G.round=0;G.cur=0}
-  startRound()};
+  beginRound($("nextBtn"))};
 
 function renderLobby(){
   const me=myPeer();
@@ -529,7 +710,7 @@ function renderAll(){
   const me=myPeer();
   if(G.phase==="lobby"){showOnly("lobby");renderLobby();lastPhase="lobby";return}
   // datos comunes
-  $("roundLbl").textContent=`Ronda ${G.round}`;$("catName").textContent=CATS[G.catIdx].name;$("catHint").textContent=DATA[G.catIdx].d||"";
+  $("roundLbl").textContent=`Ronda ${G.round}`;$("catName").textContent=G.catName||"";$("catHint").textContent=G.catHint||"";
   $("livesBox").innerHTML=G.players.map((p,i)=>`<span class="chip ${i===G.cur&&G.phase==="play"?"on":""} ${p.lives<=0?"out":""}">${esc(p.name)}${MODE!=="local"&&p.id===me?" (tú)":""} <span class="hearts">${"♥".repeat(Math.max(p.lives,0))}</span> · ${p.pts}</span>`).join("");
   const holder=G.players[G.cur];
   const mine=MODE!=="local"&&holder&&holder.id===me;

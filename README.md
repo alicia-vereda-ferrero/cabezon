@@ -22,4 +22,6 @@ En el repositorio, ve a **Settings → Pages**, elige la rama `main` y la carpet
 
 - Es un único archivo, `index.html`, sin compilar nada.
 - La conexión entre jugadores es directa entre navegadores, con [PeerJS](https://peerjs.com/).
+- Las categorías se generan en cada ronda desde [Wikidata](https://www.wikidata.org/), la base de datos libre de Wikipedia: más de 500 combinaciones (películas de un director, jugadores de un club, pueblos de una provincia, canciones de un artista…) con miles de respuestas posibles. La rareza de cada respuesta depende de en cuántas Wikipedias aparece. Si Wikidata no responde, se usan 19 categorías incluidas en el propio archivo.
+- El juego recuerda en el navegador qué categorías ya han salido para no repetirlas.
 - El dibujo de la cabeza es original del autor.
